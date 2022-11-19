@@ -1,0 +1,25 @@
+<div class="container mb-3">
+    <h3> Events </h3>
+    <div class="cards">
+    <div class="row">
+    <div class="col-md-7">
+        <ul>
+        <% @events.each do |event| %>
+            <div class="card-category">
+                <div class="text-center">
+                    <h2> <%= event.title %> </h2>
+                </div>
+                <div class="card-info">
+                    <p> <%= event.description %> </p>
+                </div>
+                <div class="card-time">
+                    <%= event.start_time %>
+                    <%= event.end_time %>
+                    <%= event.location %>  
+                </div>
+             </div>
+        <% end %>
+        </ul>
+    </div>
+
+</div>
