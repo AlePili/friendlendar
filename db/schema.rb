@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_143025) do
     t.string "title"
     t.string "category"
     t.text "description"
+    t.string "start_date"
+    t.string "end_date"
     t.string "location"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
