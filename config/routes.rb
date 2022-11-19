@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :events, only: [:index, :new, :create]
+
+  get "events/new", to: "events#new"
+  get "events/:id", to: "events#show"
+
 end
