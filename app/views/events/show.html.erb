@@ -1,3 +1,11 @@
-<h2><%= @event.title %></h2>
-<p><%= @event.category %></p>
-<p><%= @event.location %></p>
+<h1><%= @event.title %></h1>
+<h2><%= @event.description %></h2>
+<h3><%= @event.start_time %></h3>
+<h4><%= @event.category %></h4>
+
+
+<div>
+<ul class="event-actions">
+  <li><%= link_to "Back to home page", events_path %></li>
+ </ul>
+</div>
