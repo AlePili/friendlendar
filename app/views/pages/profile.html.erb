@@ -27,5 +27,15 @@
       </div>
     <% end %>
     </div>
+<div class="calendar-container">
+  <%= month_calendar(events: @events, end_attribute: :end_time) do |date, events| %>
+    <%= date %>
 
+    <% events.each do |event| %>
+      <div class="calendar-event">
+        <p><%= event.title %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 </div>
