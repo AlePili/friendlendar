@@ -1,0 +1,23 @@
+.event-cards {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-color: rgb(70, 70, 70);
+  width: 100%;
+}
+
+.event-date h5 {
+font-size: 2px;
+}
+
+.event-title h5 {
+  font-size: 2px;
+}
+
+.row event-cards {
+  width: 100%;
+}
