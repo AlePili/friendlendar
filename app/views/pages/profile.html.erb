@@ -1,0 +1,31 @@
+<h1>hello</h1>
+<div class="container">
+  <div class="row profile-header">
+    <div class="profile-image col-6">
+    </div>
+    <div class="profile-info col-6">
+    </div>
+  </div>
+  <div class="row user-events">
+    <% @events.each do |event|%>
+      <div class="card-event col-12">
+        <div class="d-flex align-items-center">
+          <div class="row event-cards">
+            <div class="hotel-image col-4">
+              <p>"Image will be here"<p>
+            </div>
+            <div class="event-attributes col-4">
+               <h5 class="event-date"><%= event.start_time %></h5>
+               <h5 class="event-title"><%= event.title %></h5>
+               <h5 class="event-location"><%= event.location %></h5>
+            </div>
+             <div class="attend-event col-4">
+                <%= link_to "Attend", "#", class: "btn btn-flat" %>
+             </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+</div>
