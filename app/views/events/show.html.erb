@@ -1,18 +1,47 @@
-<div class="card-product">
-      <img src="http://via.placeholder.com/200x100"/>
-  <div class="card-product-infos">
-
-<h1><strong><%= @event.title %><strong></h1>
-<h2><%= @event.description %></h2>
-<h3><%= @event.start_time %></h3>
-<h4><%= @event.category %></h4>
-
-
-<div>
-<ul class="event-actions">
-  <li><%= link_to "Back to home page", events_path %></li>
- </ul>
-</div>
-
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-7">
+      <h3>Event Details</h3>
+      <div class="card mb-4">
+        <div class="card-body">
+          <p>
+            <strong>Title:</strong>
+            <%= @event.title %>
+          </p>
+          <hr>
+          <p>
+            <strong>Start date:</strong>
+            <%= formatted_datetime(@event.start_date) %>
+          </p>
+          <hr>
+          <p>
+            <strong>End date:</strong>
+            <%= formatted_datetime(@event.end_date) %>
+          </p>
+          <p>
+            <strong>Description:</strong>
+            <%= @event.description %>
+          </p>
+          <hr>
+          <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary' %>
+          <%= link_to 'Back', events_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <h3>Event Participents</h3>
+      <ul class="list-group">
+        <% @event.email_guest_list.each do |guest| %>
+          <li class="list-group-item">
+            <div class="media">
+              <%= image_tag 'dummy-user.png', class: 'mr-3 guest-icon' %>
+              <div class="media-body">
+                <h5 class="mt-0"><%= guest %></h5>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
