@@ -11,7 +11,13 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
 
   def create
     @event = Event.new(event_params)
-    @event.save
+    @event.user = current_user
+    @event.save!
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -33,6 +39,6 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
   private
 
   def event_params
-    params.require(:event).permit(:visibility, :title, :category, :description, :start_time, :end_time, :location, :availability)
+    params.require(:event).permit(:visibility, :title, :category, :description, :start_time, :end_time, :location, :availability, :photo)
   end
 end
