@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_19_143025) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_201710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,10 +31,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_143025) do
 
   create_table "friendships", force: :cascade do |t|
     t.string "category"
-    t.bigint "asker_id", null: false
-    t.bigint "receiver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
+    t.bigint "receiver_id"
+    t.bigint "asker_id"
     t.index ["asker_id"], name: "index_friendships_on_asker_id"
     t.index ["receiver_id"], name: "index_friendships_on_receiver_id"
   end
