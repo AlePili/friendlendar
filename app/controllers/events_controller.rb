@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
+before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'you must sign in first!'
 
   def index
-    @events = Event.all
+  @events = Event.all
   end
 
   def new
@@ -11,6 +12,22 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to profile_path(@event)
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to profile_path(@event), status: :see_other
   end
 
   private
