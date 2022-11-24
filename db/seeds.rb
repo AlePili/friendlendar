@@ -9,6 +9,7 @@ Event.destroy_all
 User.destroy_all
 
 user = User.create!(email: "admin@admin.com", password: "123456")
+user2 = User.create!(email: "admin@admino.com", password: "1234567")
 
 puts "creating events"
 brunch = {title: "Botomless Brunch", location: "7 Boundary St, London E2 7JE", category: "Sunday Funday", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user}
