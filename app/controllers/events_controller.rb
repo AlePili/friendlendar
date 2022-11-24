@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
+before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'you must sign in first!'
 
   def index
-    @events = Event.all
+  @events = Event.all
   end
 
   def new
@@ -10,12 +11,34 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
+    @event.user = current_user
+    @event.save!
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to profile_path(@event)
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to profile_path(@event), status: :see_other
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:visibility, :title, :category, :description, :start_time, :end_time, :location, :availability)
+    params.require(:event).permit(:visibility, :title, :category, :description, :start_time, :end_time, :location, :availability, :photo)
   end
 end

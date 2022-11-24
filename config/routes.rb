@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :events, only: [:index, :new, :create]
   resources :friendships, only: [:add]
+
 end

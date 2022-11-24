@@ -12,7 +12,11 @@
         <div class="d-flex align-items-center">
           <div class="row event-cards">
             <div class="hotel-image col-4">
-              <p>"Image will be here"<p>
+              <%  if event.photo.attached?%>
+                   <%= cl_image_tag event.photo.key, width: 400, height: 260, crop: :fill %>
+                   <% else %>
+                     <%=  image_tag('event_default.gif', width: 400, height: 260, crop: :fill) %>
+                  <% end %>
             </div>
             <div class="event-attributes col-4">
                <h5 class="event-date"><%= event.start_time %></h5>
@@ -20,12 +24,23 @@
                <h5 class="event-location"><%= event.location %></h5>
             </div>
              <div class="attend-event col-4">
-                <%= link_to "Attend", "#", class: "btn btn-flat" %>
+                <%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %>
+                <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat" %>
              </div>
           </div>
         </div>
       </div>
     <% end %>
     </div>
+<div class="calendar-container">
+  <%= month_calendar(events: @events, end_attribute: :end_time) do |date, events| %>
+    <%= date %>
 
+    <% events.each do |event| %>
+      <div class="calendar-event">
+        <p><%= event.title %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 </div>
