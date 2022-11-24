@@ -20,7 +20,8 @@
                <h5 class="event-location"><%= event.location %></h5>
             </div>
              <div class="attend-event col-4">
-                <%= link_to "Attend", "#", class: "btn btn-flat" %>
+                <%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %>
+                <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat" %>
              </div>
           </div>
         </div>
