@@ -12,7 +12,11 @@
         <div class="d-flex align-items-center">
           <div class="row event-cards">
             <div class="hotel-image col-4">
-              <p>"Image will be here"<p>
+              <%  if event.photo.attached?%>
+                   <%= cl_image_tag event.photo.key, width: 400, height: 260, crop: :fill %>
+                   <% else %>
+                     <%=  image_tag('event_default.gif', width: 400, height: 260, crop: :fill) %>
+                  <% end %>
             </div>
             <div class="event-attributes col-4">
                <h5 class="event-date"><%= event.start_time %></h5>

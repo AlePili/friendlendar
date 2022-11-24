@@ -43,6 +43,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 # Simple calendar
 gem "simple_calendar", "~> 2.4"
+# cloudinary
+gem "cloudinary"
 # Use Sass to process CSS
 gem "sassc-rails"
 

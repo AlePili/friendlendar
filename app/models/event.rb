@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :invitations
   validates :start_time, presence: true
+  has_one_attached :photo
 
   default_scope -> { order(:start_time) }
 
@@ -12,7 +13,7 @@ class Event < ApplicationRecord
   # if event spans over more than one day
   def multi_days?
     if end_time.present?
-    (end_time&.to_date - start_time&.to_date).to_i >= 1
+     (end_time&.to_date - start_time&.to_date).to_i >= 1
     end
   end
 
