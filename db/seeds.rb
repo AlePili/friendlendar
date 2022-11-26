@@ -24,11 +24,11 @@ friendship3 = Friendship.create!(asker: user, receiver: user4)
 
 puts "creating events"
 brunch = {title: "Botomless Brunch", location: "7 Boundary St, London E2 7JE", category: "Sunday Funday", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user}
-candlelit_concert = {title: "Hans Zimmer Candlelit Concert", location: "10 Godliman St, London EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user}
+candlelight_concert = {title: "Hans Zimmer Candlelight Concert", location: "10 Godliman St, London EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user}
 walking_dog = {title: "Dog walkies", location: "5 Coal Lane, London SW9 8GG", category: "Sunday Funday", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user}
 christmas_fundraiser = {title: "Christmas Fundraiser", location: "5 Coal Lane, London SW9 8GG", category: "Charity", description: "I am doing a charity fundraiser to help the homeless people this winter. I'll be holding a second hand market in my place, please bring anything you wish to donate. All the proceeds would go towards booking hotels for the homeless on Christmas day", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user}
 
-[brunch, candlelit_concert, walking_dog, christmas_fundraiser].each do |attributes|
+[brunch, candlelight_concert, walking_dog, christmas_fundraiser].each do |attributes|
   event = Event.create!(attributes)
   puts "Created #{event.title}"
 end
@@ -49,9 +49,9 @@ puts "creating events"
 wineknow = {title: "Wine know-how for all || Wine tasting events bringing more inclusivity and less formality || Ticket price includes 6 wines", location: "The Manor 140 Walworth Road London SE17 1JL", category: "Wine", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user3}
 raclette_night = {title: "Raclettes & Fondue Nights are back!", location: "56 Newington Grn 56 Newington Green London N16 9PX", category: "Food", description: "Get your fingers dirty! Book your Cheesy Nights with deposit", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user3}
 whisky_weekender = {title: "London Whisky Weekender 2023", location: "The Kia Oval Surrey County Cricket Club Kennington Oval London SE11 5SS", category: "Sprits", description: "If you haven’t been to one of our festivals before you are in for a treat!", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user3}
-90_Interlude = {title: "90's Interlude", location: "The Mix Dalston 588A Kingsland Road London E8 4AH", category: "Wine", description: "★ CC EventsUK - Presents 90's Interlude (An Exclusive 90's/00's Themed Party) ★", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user3}
+interlude = {title: "Interlude", location: "The Mix Dalston 588A Kingsland Road London E8 4AH", category: "Wine", description: "★ CC EventsUK - Presents 90's Interlude (An Exclusive 90's/00's Themed Party) ★", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user3}
 
-[wineknow, raclette_night, whisky_weekender, 90_Interlude].each do |attributes|
+[wineknow, raclette_night, whisky_weekender, interlude].each do |attributes|
   event = Event.create!(attributes)
   puts "Created #{event.title}"
 end
@@ -62,7 +62,7 @@ yoga = {title: "Yoga", location: "Kingsland Locke, Dalston 130 Kingsland High St
 rise_Run = {title: "Rise & Run with The Westin London City", location: "The Westin London City 60 High Timber Street London EC4V 3EJ", category: "Sports", description: "Rise & Run is returning to London! Join us for a 5km social run along the scenic River Thames.", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user4}
 felt_robins = {title: "Felt Robins", location: "The Ecology Pavilion Mile End Park-Urban Makers Christmas Market 125 Grove Road London E3 5RP", category: "Hobbies", description: "Let's Make Felt Robins for Christmas Tree - Urban Makers Christmas Market", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user4}
 
-[brunch, candlelit_concert, walking_dog, christmas_fundraiser].each do |attributes|
+[joy_riders, yoga, rise_Run, felt_robins].each do |attributes|
   event = Event.create!(attributes)
   puts "Created #{event.title}"
 end

@@ -10,4 +10,4 @@ Rails.application.routes.draw do
     resources :invitations, only: [:create]
     resources :friendships, only: [:add]
   end
-
+end
