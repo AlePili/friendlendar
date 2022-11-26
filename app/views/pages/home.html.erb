@@ -1,2 +1,48 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="first-part">
+     <div class="banner" style="background-image: url(<%= asset_path 'peoples.png' %>)">
+         <div class="title mt-8">
+            <h1><strong> Friendlendar </strong> </h1>
+            </div>
+            <p> Connect your calendar with your friend and share your event.</p>
+            <%# <a class="btn btn-secondary" href="#">Find events</a> %>
+        </div>
+     </div>   
+</div>
+<div class="text-center">
+          <div class="button">
+               <%= submit_tag "SEARCH", class: "btn btn-warning" %>
+          </div >
+          <div class="friend">
+               <h2> What's friendlendar </h2>
+               <p> 
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+               <div class="intro">
+               <h2><strong> How it works </strong></h2>
+          
+               <div class="icons" >
+                    <div class="card">
+                         <%=image_tag("1251428.png", size: "150x150")%>
+                         <h3> Create an event </h3>
+                         <h5>Easy to plan your  event with friendlendar. </h5>
+                    </div>
+                    <div class="card">
+                         <%=image_tag("1255623.png", size: "150x150")%>
+                         <h3> Add in your calendar </h3>
+                         <h5> Easy to plan your  event with calendar. </h5>
+                    </div>
+                    <div class="card">
+                         <%=image_tag("1051245.png", size: "150x150")%>
+                         <h3> Share it with your friends  </h3>
+                         <h5> Easy to plan your  event with calendar.</h5>
+                    </div> 
+               </div>
+          </div>
+     </div>
+</div >
+<div class="section" style="background-color: orange">
+ <%=image_tag("crowd.png", size: "750x600")%>
+ <%# </div> %>
+ <%# <div class="text-align-right"> %>
+ <h2> Explore Friendlendar...find an event near you </h2>
+
+</div>
