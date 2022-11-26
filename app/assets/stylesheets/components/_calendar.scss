@@ -9,13 +9,18 @@
 
 .calendar-event {
   color: white;
-  padding: 8px 24px;
+  padding: 8px  12px;
   border-radius: 4px;
-  background: #1EDD88;
+  background:#f3cae7;
   transition: background 0.3s ease;
+  font-size: 10px;
 }
 
 .calendar-event:hover {
-  background: #1BCB7F;
+  background: #fa77d3;
   color: white;
+}
+
+.simple-calendar .next-month {
+  background: #DDDD !important;
 }

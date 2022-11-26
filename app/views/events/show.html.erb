@@ -1,0 +1,4 @@
+<%= simple_form_for([@event, @invitation])do |f| %>
+ <%= f.input :user_id, collection: User.all %>
+ <%= f.submit %>
+<% end %>

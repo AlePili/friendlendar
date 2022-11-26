@@ -9,6 +9,11 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
     @event = Event.new
   end
 
+  def show
+    @event = Event.find(params[:id])
+    @invitation = Invitation.new
+  end
+
   def create
     @event = Event.new(event_params)
     @event.user = current_user

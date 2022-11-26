@@ -3,11 +3,24 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #670BFF;
+  background: #000000;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
   background: #4D04C4;
+  color: white;
+}
+
+.btn-flat-secondary {
+  color: rgb(255, 255, 255);
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #a4a4a4;
+  transition: background 0.3s ease;
+}
+
+.btn-flat-secondary:hover {
+  background: #b88ffa;
   color: white;
 }
