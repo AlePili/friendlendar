@@ -10,3 +10,27 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+.search-box {
+  float: right;
+}
+
+
+.search-box button {
+  height: 32px;
+  width: 32px;
+  margin-left: -5px;
+  background: LightGrey;
+  font-size: 17px;
+  border: none;
+  margin-top: 14px;
+  margin-right: 16px;
+}
+
+.search-box input[type=text] {
+  height: 26px;
+  font-size: 17px;
+  width: 200px;
+  margin-top: 14px;
+}
