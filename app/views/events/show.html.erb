@@ -1,4 +1,27 @@
-<%= simple_form_for([@event, @invitation])do |f| %>
- <%= f.input :user_id, collection: User.all %>
- <%= f.submit %>
+<div class="event-card">
+  <%  if @event.photo.attached?%>
+    <%= cl_image_tag @event.photo.key, width: 400, height: 260, crop: :fill %>
+  <% else %>
+    <%=  image_tag('event_default.gif', width: 400, height: 260, crop: :fill) %>
+  <% end %>
+  <div class="event-card-infos">
+    <div>
+      <h2><%= @event.title %></h2>
+      <p><%= @event.location%></p>
+    </div>
+    <h2 class="event-card-host"><%= @event.user %></h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
+  </div>
+</div>
+
+<% if @event.user == current_user %>
+  <%= simple_form_for([@event, @invitation])do |f| %>
+  <%= f.input :user_id, collection: User.all %>
+  <%= f.submit "Invite" %>
+  <% end %>
+<% else %>
+  <%= simple_form_for([@event, @invitation])do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id  %>
+  <%= f.submit "Join" if @event.invitations.where(user_id: current_user).empty? %>
+  <% end %>
 <% end %>

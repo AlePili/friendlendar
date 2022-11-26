@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'you must sign in first!'
 
   def index
-  @events = Event.all
+    @events = Event.all
+    # @friend_events =
   end
 
   def new
