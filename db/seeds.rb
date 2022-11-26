@@ -33,4 +33,38 @@ christmas_fundraiser = {title: "Christmas Fundraiser", location: "5 Coal Lane, L
   puts "Created #{event.title}"
 end
 
+
+puts "creating events"
+brunch = {title: "Botomless Brunch", location: "7 Boundary St, London E2 7JE", category: "Sunday Funday", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user2}
+candlelit_concert = {title: "Hans Zimmer Candlelit Concert", location: "10 Godliman St, London EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user2}
+walking_dog = {title: "Dog walkies", location: "5 Coal Lane, London SW9 8GG", category: "Sunday Funday", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user2}
+christmas_fundraiser = {title: "Christmas Fundraiser", location: "5 Coal Lane, London SW9 8GG", category: "Charity", description: "I am doing a charity fundraiser to help the homeless people this winter. I'll be holding a second hand market in my place, please bring anything you wish to donate. All the proceeds would go towards booking hotels for the homeless on Christmas day", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user2}
+
+[brunch, candlelit_concert, walking_dog, christmas_fundraiser].each do |attributes|
+  event = Event.create!(attributes)
+  puts "Created #{event.title}"
+end
+
+puts "creating events"
+brunch = {title: "Botomless Brunch", location: "7 Boundary St, London E2 7JE", category: "Sunday Funday", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user3}
+candlelit_concert = {title: "Hans Zimmer Candlelit Concert", location: "10 Godliman St, London EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user3}
+walking_dog = {title: "Dog walkies", location: "5 Coal Lane, London SW9 8GG", category: "Sunday Funday", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user3}
+christmas_fundraiser = {title: "Christmas Fundraiser", location: "5 Coal Lane, London SW9 8GG", category: "Charity", description: "I am doing a charity fundraiser to help the homeless people this winter. I'll be holding a second hand market in my place, please bring anything you wish to donate. All the proceeds would go towards booking hotels for the homeless on Christmas day", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user3}
+
+[brunch, candlelit_concert, walking_dog, christmas_fundraiser].each do |attributes|
+  event = Event.create!(attributes)
+  puts "Created #{event.title}"
+end
+
+puts "creating events"
+brunch = {title: "Botomless Brunch", location: "7 Boundary St, London E2 7JE", category: "Sunday Funday", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user4}
+candlelit_concert = {title: "Hans Zimmer Candlelit Concert", location: "10 Godliman St, London EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user4}
+walking_dog = {title: "Dog walkies", location: "5 Coal Lane, London SW9 8GG", category: "Sunday Funday", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user4}
+christmas_fundraiser = {title: "Christmas Fundraiser", location: "5 Coal Lane, London SW9 8GG", category: "Charity", description: "I am doing a charity fundraiser to help the homeless people this winter. I'll be holding a second hand market in my place, please bring anything you wish to donate. All the proceeds would go towards booking hotels for the homeless on Christmas day", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user4}
+
+[brunch, candlelit_concert, walking_dog, christmas_fundraiser].each do |attributes|
+  event = Event.create!(attributes)
+  puts "Created #{event.title}"
+end
+
 puts "Finished!"
