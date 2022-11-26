@@ -4,7 +4,12 @@ class User < ApplicationRecord
   has_many :invitations
   has_many :friendships
   has_many :events
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+  def to_s
+    "#{self.email}"
+  end
 end
