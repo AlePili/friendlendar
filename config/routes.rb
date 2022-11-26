@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :events, only: [:index, :new, :create]
-  resources :friendships, only: [:new, :create]
+  resources :events do
+    resources :invitations, only: [:create]
+    resources :friendships, only: [:new, :create]
+  end
 
-end
+
