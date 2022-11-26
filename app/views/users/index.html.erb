@@ -1,3 +1,5 @@
 <% @users.each do |user| %>
- <%= user.email %> <%= render "friendships/form", user: user %>
+ <%= user.email %>
+ <br>
+ <%= render "friendships/form", user: user if current_user.askers.where(receiver_id: user.id, asker_id: current_user).empty? %>
 <% end  %>
