@@ -1,0 +1,3 @@
+<% @users.each do |user| %>
+ <%= user.email %> <%= render "friendships/form", user: user %>
+<% end  %>
