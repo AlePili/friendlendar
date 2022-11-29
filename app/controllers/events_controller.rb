@@ -3,7 +3,6 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
 
   def index
     @events = Event.all
-    # @friend_events =
   end
 
   def new
