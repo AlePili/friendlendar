@@ -1,4 +1,4 @@
-<div class="container">
+<div class="event-header">
   <div class="event-card">
     <%  if @event.photo.attached?%>
       <%= cl_image_tag @event.photo.key, width: 400, height: 260, crop: :fill %>
@@ -7,11 +7,41 @@
     <% end %>
     <div class="event-card-infos">
       <div>
-        <h2><%= @event.title %></h2>
-        <p><%= @event.location%></p>
+        <h1 class="event-card-title"><%= @event.title %></h2>
+        <p class="event-card-title"><%= @event.location%></p>
       </div>
       <h2 class="event-card-host"><%= @event.user %></h2>
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
+    </div>
+</div>
+<div class="container">
+  <div class="row event-details">
+    <div class="col-md-8">
+      <h2 class="event-details">Details</h2>
+
+      <p class="event-details"><%= @event.description %></p>
+    </div>
+    <div class="event-location col-4">
+     <div class="event-location-card">
+      <p>📍<%= @event.location %></p>
+      <p>🗓 <%= @event.start_time %> to <%= @event.end_time %></p>
+      <p>👫 <%= @event.availability %> friends can join me</p>
+     </div>
+     <div class="event-attend-button">
+      <% if @event.user == current_user %>
+        <h3>Invite your friends</h3>
+        <%= simple_form_for([@event, @invitation])do |f| %>
+        <%= f.input :user_id, collection: User.all %>
+        <%= f.submit "Invite", class: "btn btn-flat-secondary" %>
+        <% end %>
+        <% else %>
+        <h3>Join this event</h3>
+        <%= simple_form_for([@event, @invitation])do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id  %>
+        <%= f.submit "Join" if @event.invitations.where(user_id: current_user).empty? %>
+        <% end %>
+       <% end %>
+     </div>
     </div>
   </div>
 
@@ -21,17 +51,6 @@
 
 
 
-  <% if @event.user == current_user %>
-    <%= simple_form_for([@event, @invitation])do |f| %>
-    <%= f.input :user_id, collection: User.all %>
-    <%= f.submit "Invite" %>
-    <% end %>
-  <% else %>
-    <%= simple_form_for([@event, @invitation])do |f| %>
-    <%= f.hidden_field :user_id, :value => current_user.id  %>
-    <%= f.submit "Join" if @event.invitations.where(user_id: current_user).empty? %>
-    <% end %>
-  <% end %>
 
   <h2>All attendees</h2>
 
