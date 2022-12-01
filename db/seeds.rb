@@ -10,7 +10,7 @@ Friendship.destroy_all
 User.destroy_all
 
 
-user = User.create!(email: "admin@admin.com", password: "123456")
+user = User.create!(email: "admin@admin.com", password: "123456", first_name: "Adam Admin")
 user2 = User.create!(email: "admin@admino.com", password: "1234567")
 user3 = User.create!(email: "admin3@admino.com", password: "1234567")
 user4 = User.create!(email: "admin4@admino.com", password: "1234567")

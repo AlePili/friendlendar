@@ -16,17 +16,17 @@
               <%  if event.photo.attached?%>
                    <%= cl_image_tag event.photo.key, width: 400, height: 260, crop: :fill %>
                    <% else %>
-                     <%=  image_tag('event_default.gif', width: 400, height: 260, crop: :fill) %>
+                     <%=  image_tag('event_default.png', width: 400, height: 260, crop: :fill) %>
                   <% end %>
             </div>
-            <div class="event-attributes col-4">
+            <div class="event-attributes col-5">
                <h5 class="event-date"><%= event.start_time %></h5>
                <h5 class="event-title"><%= event.title %></h5>
                <h5 class="event-location"><%= event.location %></h5>
             </div>
-             <div class="attend-event col-4">
-                <%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %>
-                <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary" %>
+             <div class="attend-event col-3">
+                <p><%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %></p>
+               <p> <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary" %> </p>
              </div>
           </div>
         </div>
@@ -48,4 +48,5 @@
     </div>
   </div>
   </div>
+
 </div>

@@ -3,14 +3,14 @@
     <%  if @event.photo.attached?%>
       <%= cl_image_tag @event.photo.key, width: 400, height: 260, crop: :fill %>
     <% else %>
-      <%=  image_tag('event_default.gif', width: 400, height: 260, crop: :fill) %>
+      <%=  image_tag('event_default.png', width: 400, height: 260, crop: :fill) %>
     <% end %>
     <div class="event-card-infos">
       <div>
         <h1 class="event-card-title"><%= @event.title %></h2>
         <p class="event-card-title"><%= @event.location%></p>
       </div>
-      <h2 class="event-card-host"><%= @event.user %></h2>
+      <h2 class="event-card-host"><%= @event.user.first_name %></h2>
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
     </div>
 </div>
@@ -18,8 +18,10 @@
   <div class="row event-details">
     <div class="col-md-8">
       <h2 class="event-details">Details</h2>
-
-      <p class="event-details"><%= @event.description %></p>
+      <% sentences=@event.description.split("\n") %>
+      <% sentences.each do |sentence| %>
+      <p class="event-details"><%= sentence.strip %></p>
+      <% end %>
     </div>
     <div class="event-location col-4">
      <div class="event-location-card">
