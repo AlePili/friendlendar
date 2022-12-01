@@ -45,14 +45,13 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
   <h2>All attendees</h2>
+
+      <% @event.invitations.each do |invitation| %>
+      <% if invitation.status == "approved" %>
+      <%= cl_image_tag invitation.user.photo.key, width: 40, height: 40, class: "avatar dropdown-toggle" %>
+      <% end %>
+       <% end %>
 
   <% if @event.user == current_user %>
     <% @event.invitations.each do |invitation| %>
