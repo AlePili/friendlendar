@@ -3,6 +3,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
 
   def index
     @events = Event.all
+    @categories = @events.map{|event| event.category}
   end
 
   def new

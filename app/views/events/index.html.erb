@@ -1,14 +1,13 @@
 <div class= "outer_box">
 
     <div class="container">
-         <h1><strong>FriendLendar.</strong></h1>
-         <p>Add some text here!!!!</p>
-          <%# <a class="btn btn-flat" href="#">Search a Hotel</a> %>
-        </div>
-          <div class="main_button">
-          <%= link_to "Search an event", events_path, class: "btn btn-ghost" %>
-          <%# <%= link_to "Book now", "#", class: "btn btn-flat" %>
-        </div>
+
+
+         <%= simple_form_for(Event.new) do |f| %>
+          <%= f.input  :category, collection: @categories, as: :check_boxes, label: "" %>
+          <%= f.submit "Search an event" , class: "btn btn-ghost"%>
+          <% end %>
+
     </div>
 
 
