@@ -2,7 +2,14 @@ class EventsController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'you must sign in first!'
 
   def index
-    @events = Event.all
+
+    @my_events = Event.where(user_id: current_user.id)
+    @friends = current_user.receivers
+    @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
+
+    # my_friendships_ids = Friendships.map(&:receiver_id) 
+    # @event = Event.where(user_id: my_friendships_ids)
+    
   end
 
   def new
