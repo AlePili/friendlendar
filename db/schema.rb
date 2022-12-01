@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_201710) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_191332) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,14 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_201710) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "heading"
-    t.text "body"
-    t.boolean "display", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "visibility"
     t.string "title"
@@ -62,8 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_201710) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "availability"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -79,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_201710) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "pending"
     t.bigint "event_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -96,13 +86,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_201710) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "events", "categories"
   add_foreign_key "events", "users"
   add_foreign_key "friendships", "users", column: "asker_id"
   add_foreign_key "friendships", "users", column: "receiver_id"
