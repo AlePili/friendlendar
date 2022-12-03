@@ -10,8 +10,7 @@
         <h1 class="event-card-title"><%= @event.title %></h2>
         <p class="event-card-title"><%= @event.location%></p>
       </div>
-      <h2 class="event-card-host"><%= @event.user.first_name %></h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
+      <%= cl_image_tag @event.user.photo.key, width: 40, height: 40, class: "avatar dropdown-toggle" %>
     </div>
 </div>
 <div class="container">
