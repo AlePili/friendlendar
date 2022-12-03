@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :events do
-    resources :invitations, only: [:create]
+    resources :invitations, only: [:create, :update]
   end
   resources :friendships, only: [ :new, :create ]
 end

@@ -1,5 +1,12 @@
 <% @users.each do |user| %>
  <%= user.email %>
+  <% if user.photo.attached? %>
+ <%= cl_image_tag user.photo.key, heihgt: 100, width: 100, crop: :fill %>
+ <% else  %>
+    <%=image_tag("avatar.png", class: "avatar")%>
+  <% end %>
+
  <br>
  <%= render "friendships/form", user: user if current_user.askers.where(receiver_id: user.id, asker_id: current_user).empty? %>
 <% end  %>
+
