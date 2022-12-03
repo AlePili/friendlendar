@@ -5,15 +5,19 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
 
     @events = Event.all
     @categories = @events.map{|event| event.category}.uniq()
+    @friends = current_user.askers
+
 
     if params[:query].present?
-      @events = Event.where(category: params[:query])
+      @my_events = Event.where(user_id: current_user.id)
+      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id)).and(Event.where(category: params[:query]))
+      #raise
     else
       @my_events = Event.where(user_id: current_user.id)
-      @friends = current_user.askers
       @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
+      @events = Event.all
     end
-  raise
+  # raise
   end
 
 
