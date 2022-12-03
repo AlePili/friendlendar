@@ -11,23 +11,23 @@ Friendship.destroy_all
 User.destroy_all
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/lukas_jmhw4z.jpg")
-user1 = User.new(email: "admin@admin.com", password: "123456")
+user1 = User.new(first_name: "Lukas", email: "admin@admin.com", password: "123456")
 user1.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 user1.save
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/Alessandra_j6ad43.jpg")
-user2 = User.new(email: "admin@admino.com", password: "1234567")
+user2 = User.new(first_name: "Allie", email: "admin@admino.com", password: "1234567")
 user2.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 user2.save
 
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/108416241_q8vw70.jpg")
-user3 = User.new(email: "admin3@admino.com", password: "1234567")
+user3 = User.new(first_name: "Adriana", email: "admin3@admino.com", password: "1234567")
 user3.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 user3.save
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/Kamelya_otbuva.jpg")
-user4 = User.new(email: "admin4@admino.com", password: "1234567")
+user4 = User.new(first_name: "Kamelya", email: "admin4@admino.com", password: "1234567")
 user4.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 user4.save
 # user = User.create!(email: "admin@admin.com", password: "123456")
