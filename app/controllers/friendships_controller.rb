@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
-   
+
    def new
-   end 
+   end
 
    def create
       @reciever = User.find(params[:friendship][:receiver_id])
@@ -12,6 +12,7 @@ class FriendshipsController < ApplicationController
          redirect_to users_path
       end
    end 
+
 
 
 

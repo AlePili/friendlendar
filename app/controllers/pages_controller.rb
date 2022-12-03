@@ -7,8 +7,10 @@ class PagesController < ApplicationController
   def profile
     @my_events = Event.where(user_id: current_user.id)
     @friends = current_user.askers
+    @friendship_requests = Friendship.where(receiver: current_user)
     @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
     @events = @my_events + @friends_events
+
   end
 
   def index
