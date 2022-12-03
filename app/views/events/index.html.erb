@@ -1,14 +1,23 @@
 <div class= "outer_box">
 
     <div class="container">
+<div class="apple">
+
+<%# <%= simple_form_for :query, url: events_path, method: :get, class: "d-flex" do |form| %>
+    <%# <%= form.input :query, as: :check_boxes, collection: @categories, input_html: { class: "tag-selector" } %>
+
+  <%# <%= submit_tag "Search", class: "btn btn-primary" %>
+
+<%# <% end %>
 
 
 <%= form_with url: events_path, method: :get, class: "d-flex" do |form| %>
-  <%= form.collection_check_boxes :query, @categories, :to_s, :to_s  %>
+  <%= form.collection_check_boxes :query, @categories, :to_s, :to_s, input_html: { class: "tag-selector" }  %>
 
   <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
 
+<% end %>
+</div>
 
     </div>
 
@@ -27,7 +36,7 @@
 
     <div class="book-container">
       <div class="content">
-        <button class="btn">Add to my Calender</button>
+      <%= link_to "View Details", event_path(friend), class: "btn" %>
       </div>
     </div>
     <div class="informations-container">
@@ -62,8 +71,6 @@
   </li>
   </ul>
 
-
-    </br></br>
 
 
 
