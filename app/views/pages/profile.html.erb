@@ -3,7 +3,7 @@
   <div class="row profile-header">
     <p> &larr; <%= link_to "Back to home page", root_path, class: "no-underline" %></p>
     <div class="profile-image col-2">
-      <%= cl_image_tag current_user.photo.key, class: "avatar-profile" %>
+      <%= cl_image_tag current_user.photo.key, width: 200, height: 200, class: "avatar-profile" %>
     </div>
     <div class="profile-info col-10">
       <h2><%= @current_user.first_name%> <%= @current_user.last_name %></h2>
