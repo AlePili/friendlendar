@@ -2,13 +2,16 @@ class EventsController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'you must sign in first!'
 
   def index
+
     @events = Event.all
     @categories = @events.map{|event| event.category}.uniq()
 
     if params[:query].present?
       @events = Event.where(category: params[:query])
     else
-      @events = Event.all
+      @my_events = Event.where(user_id: current_user.id)
+      @friends = current_user.askers
+      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
     end
   raise
   end

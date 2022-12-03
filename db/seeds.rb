@@ -5,28 +5,52 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
 Event.destroy_all
 Friendship.destroy_all
 User.destroy_all
 
+file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/lukas_jmhw4z.jpg")
+user1 = User.new(email: "admin@admin.com", password: "123456")
+user1.photo.attach(io: file, filename: "user.png", content_type: "image/png")
+user1.save
 
-user = User.create!(email: "admin@admin.com", password: "123456")
-user2 = User.create!(email: "admin@admino.com", password: "1234567")
-user3 = User.create!(email: "admin3@admino.com", password: "1234567")
-user4 = User.create!(email: "admin4@admino.com", password: "1234567")
+file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/Alessandra_j6ad43.jpg")
+user2 = User.new(email: "admin@admino.com", password: "1234567")
+user2.photo.attach(io: file, filename: "user.png", content_type: "image/png")
+user2.save
 
-friendship = Friendship.create!(asker: user, receiver: user2)
-friendship2 = Friendship.create!(asker: user, receiver: user3)
-friendship3 = Friendship.create!(asker: user, receiver: user4)
+
+file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/108416241_q8vw70.jpg")
+user3 = User.new(email: "admin3@admino.com", password: "1234567")
+user3.photo.attach(io: file, filename: "user.png", content_type: "image/png")
+user3.save
+
+file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/Kamelya_otbuva.jpg")
+user4 = User.new(email: "admin4@admino.com", password: "1234567")
+user4.photo.attach(io: file, filename: "user.png", content_type: "image/png")
+user4.save
+# user = User.create!(email: "admin@admin.com", password: "123456")
+# user2 = User.create!(email: "admin@admino.com", password: "1234567")
+# user3 = User.create!(email: "admin3@admino.com", password: "1234567")
+# user4 = User.create!(email: "admin4@admino.com", password: "1234567")
+
+friendship = Friendship.create!(asker: user1, receiver: user2)
+friendship2 = Friendship.create!(asker: user1, receiver: user3)
+friendship3 = Friendship.create!(asker: user1, receiver: user4)
 
 
 
 
 puts "creating events"
-brunch = {title: "Botomless Brunch", location: "7 Boundary St, London E2 7JE", category: "Sunday Funday", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user}
-candlelit_concert = {title: "Hans Zimmer Candlelit Concert", location: "10 Godliman St, London EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user}
-walking_dog = {title: "Dog walkies", location: "5 Coal Lane, London SW9 8GG", category: "Sunday Funday", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user}
-christmas_fundraiser = {title: "Christmas Fundraiser", location: "5 Coal Lane, London SW9 8GG", category: "Charity", description: "I am doing a charity fundraiser to help the homeless people this winter. I'll be holding a second hand market in my place, please bring anything you wish to donate. All the proceeds would go towards booking hotels for the homeless on Christmas day", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user}
+brunch = {title: "Botomless Brunch", location: "7 Boundary St, London E2 7JE", category: "Sunday Funday", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user1}
+candlelit_concert = {title: "Hans Zimmer Candlelit Concert", location: "10 Godliman St, London EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user1}
+walking_dog = {title: "Dog walkies", location: "5 Coal Lane, London SW9 8GG", category: "Sunday Funday", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user1}
+christmas_fundraiser = {title: "Christmas Fundraiser", location: "5 Coal Lane, London SW9 8GG", category: "Charity", description: "I am doing a charity fundraiser to help the homeless people this winter. I'll be holding a second hand market in my place, please bring anything you wish to donate. All the proceeds would go towards booking hotels for the homeless on Christmas day", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user1}
+# user_photos = [https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/lukas_jmhw4z.jpg
+#   https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/Alessandra_j6ad43.jpg
+#   https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/108416241_q8vw70.jpg
+#   https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/Kamelya_otbuva.jpg]
 
 [brunch, candlelit_concert, walking_dog, christmas_fundraiser].each do |attributes|
   event = Event.create!(attributes)
@@ -49,9 +73,9 @@ puts "creating events"
 wineknow = {title: "Wine know-how for all || Wine tasting events bringing more inclusivity and less formality || Ticket price includes 6 wines", location: "The Manor 140 Walworth Road London SE17 1JL", category: "Wine", description: "Come join me for botomless brunch and Hoxton Shoreditch ;)", start_time: DateTime.new(2022,2,3,4,5,6), availability:2, user:user3}
 raclette_night = {title: "Raclettes & Fondue Nights are back!", location: "56 Newington Grn 56 Newington Green London N16 9PX", category: "Food", description: "Get your fingers dirty! Book your Cheesy Nights with deposit", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user3}
 whisky_weekender = {title: "London Whisky Weekender 2023", location: "The Kia Oval Surrey County Cricket Club Kennington Oval London SE11 5SS", category: "Sprits", description: "If you haven’t been to one of our festivals before you are in for a treat!", start_time: DateTime.new(2022,2,7,1,2,0), availability:5, user:user3}
-90_Interlude = {title: "90's Interlude", location: "The Mix Dalston 588A Kingsland Road London E8 4AH", category: "Wine", description: "★ CC EventsUK - Presents 90's Interlude (An Exclusive 90's/00's Themed Party) ★", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user3}
+# 90_Interlude = {title: "90's Interlude", location: "The Mix Dalston 588A Kingsland Road London E8 4AH", category: "Wine", description: "★ CC EventsUK - Presents 90's Interlude (An Exclusive 90's/00's Themed Party) ★", start_time: DateTime.new(2022,12,7,5,2,6), availability: 99, user:user3}
 
-[wineknow, raclette_night, whisky_weekender, 90_Interlude].each do |attributes|
+[wineknow, raclette_night, whisky_weekender].each do |attributes|
   event = Event.create!(attributes)
   puts "Created #{event.title}"
 end
