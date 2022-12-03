@@ -11,3 +11,8 @@
 @import "components/index";
 @import "pages/index";
 @import "components/events_components";
+
+Html body a {
+  text-decoration: none !important;
+  color:black;
+}

@@ -1,8 +1,13 @@
 <div class="container">
+
   <div class="row profile-header">
-    <div class="profile-image col-6">
+    <p> &larr; <%= link_to "Back to home page", root_path, class: "no-underline" %></p>
+    <div class="profile-image col-2">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-profile" %>
     </div>
-    <div class="profile-info col-6">
+    <div class="profile-info col-10">
+      <h2><%= @current_user.first_name%> <%= @current_user.last_name %></h2>
+      <p>Going to  <%= @events.count %> events </p>
     </div>
   </div>
 
@@ -10,26 +15,29 @@
     <div class="col-md-7">
       <% @events.each do |event|%>
         <div class="card-event col-12">
-        <div class="d-flex align-items-center">
+
           <div class="row event-cards">
-            <div class="event-image col-4">
+            <div class="d-flex align-items-center">
+            <div class="event-image">
+            <%= link_to(event_path(event)) do %>
               <%  if event.photo.attached?%>
                    <%= cl_image_tag event.photo.key, width: 400, height: 260, crop: :fill %>
                    <% else %>
                      <%=  image_tag('event_default.gif', width: 400, height: 260, crop: :fill) %>
                   <% end %>
+            <% end %>
             </div>
-            <div class="event-attributes col-4">
-               <h5 class="event-date"><%= event.start_time %></h5>
+            <div class="event-attributes">
+               <h5 class="event-date"><%= event.start_time%></h5>
                <h5 class="event-title"><%= event.title %></h5>
                <h5 class="event-location"><%= event.location %></h5>
             </div>
-             <div class="attend-event col-4">
-                <%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %>
-                <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary" %>
+             <div class="attend-event">
+                <p><%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %> </p>
+                <p><%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary" %></p>
              </div>
           </div>
-        </div>
+          </div>
         </div>
     <% end %>
     </div>
@@ -47,5 +55,20 @@
       <% end %>
     </div>
   </div>
+  </div>
+  <div class="row user-friends">
+    <h2>Friends</h2>
+    <% @friends.each do |friend| %>
+     <%= cl_image_tag friend.receiver.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-friendship" if friend.receiver.photo.attached? %>
+
+    <% end %>
+
+    <% @friendship_requests.each do |friend_request| %>
+     <%= cl_image_tag friend_request.asker.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-friendship" if friend_request.receiver.photo.attached? %>
+
+
+    <% end %>
+
+
   </div>
 </div>
