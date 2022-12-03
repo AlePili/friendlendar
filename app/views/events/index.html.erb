@@ -13,19 +13,26 @@
 
     <h1>Dicover your friends events</h1>
 
-    <% @friends_events.each do |friend| %>
+    <ul>
 
-    <li class="booking-card" style="background-image: url(https://plus.unsplash.com/premium_photo-1664790560098-1fac17eb495e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)">
+    <% @friends_events.each do |friend| %>
+  <li class="booking-card" >
+     <%  if friend.photo.attached?%>
+                   <%= cl_image_tag friend.photo.key, width: 400, height: 260, crop: :fill %>
+                   <% else %>
+                     <%=  image_tag('crowd.png', width: 400, height: 260, crop: :fill) %>
+                  <% end %>
+
     <div class="book-container">
       <div class="content">
         <button class="btn">Add to my Calender</button>
       </div>
     </div>
     <div class="informations-container">
-      <h2 class="title"></h2>
-      <%= friend.title %>
-      <p class="sub-title"></p>
-      <%= friend.description %>
+      <h2 class="title">
+      <%= friend.title %> </h2>
+      <p class="sub-title">
+       <%= friend.description %> </p>
       <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
     <path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
 </svg>£20</p>
@@ -45,7 +52,18 @@
             <p> <%= friend.end_time %> </p>
 
     <% end %>
+          </div>
+        </div>
+         <%# <p class="disclaimer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi eveniet perferendis culpa. Expedita architecto nesciunt, rem distinctio</p> %>
+        </div>
+    </div>
   </li>
+  </ul>
+
+
+    </br></br>
+
+  
 
 <h1>Dicover your friends events</h1>
 
