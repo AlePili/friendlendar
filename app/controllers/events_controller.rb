@@ -3,8 +3,16 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
 
   def index
     @events = Event.all
-    @categories = @events.map{|event| event.category}
+    @categories = @events.map{|event| event.category}.uniq()
+
+    if params[:query].present?
+      @events = Event.where(category: params[:query])
+    else
+      @events = Event.all
+    end
+  raise
   end
+
 
   def new
     @event = Event.new
