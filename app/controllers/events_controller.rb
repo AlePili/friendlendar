@@ -3,13 +3,23 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
 
   def index
 
-    @my_events = Event.where(user_id: current_user.id)
+    @events = Event.all
+    @categories = @events.map{|event| event.category}.uniq()
     @friends = current_user.askers
-    @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
-    # my_friendships_ids = Friendships.map(&:receiver_id) 
-    # @event = Event.where(user_id: my_friendships_ids)
-    
+
+
+    if params[:query].present?
+      @my_events = Event.where(user_id: current_user.id)
+      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id)).and(Event.where(category: params[:query]))
+      #raise
+    else
+      @my_events = Event.where(user_id: current_user.id)
+      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
+      @events = Event.all
+    end
+  # raise
   end
+
 
   def new
     @event = Event.new
