@@ -2,12 +2,13 @@
   overflow: hidden;
   height: 200px;
   background: white;
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
   border-top: 1px;
   border-bottom: 1px;
   border-color: rgb(70, 70, 70);
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .event-date h5 {
@@ -26,12 +27,28 @@ font-size: 2px;
   height: 100%;
   width: 240px;
   object-fit: cover;
+  margin-right: 10px;
 }
 
 .event-attributes h5 {
   font-size: 16px;
 }
 
+.event-attributes {
+  width: 300px;
+}
+
 .event-date h5{
   font-size: 2px;
+}
+
+.profile-header {
+  background-color: white;
+  padding: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.no-underline a {
+  text-decoration: none;
 }

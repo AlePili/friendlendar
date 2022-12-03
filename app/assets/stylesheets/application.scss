@@ -11,3 +11,12 @@
 @import "components/index";
 @import "pages/index";
 @import "components/events_components";
+@import "components/footer";
+
+Html body a {
+  text-decoration: none !important;
+  color:black;
+}
+
+
+
