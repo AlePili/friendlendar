@@ -10,6 +10,7 @@
 
 <%# <% end %>
 
+
 <%= form_with url: events_path, method: :get, class: "d-flex" do |form| %>
   <%= form.collection_check_boxes :query, @categories, :to_s, :to_s, input_html: { class: "tag-selector" }  %>
 
@@ -17,6 +18,7 @@
 
 <% end %>
 </div>
+
     </div>
 
     <h1>Dicover your friends events</h1>
@@ -25,11 +27,12 @@
 
     <% @friends_events.each do |friend| %>
   <li class="booking-card" >
-     <%  if friend.photo.attached?%>
-                   <%= cl_image_tag friend.photo.key, width: 400, height: 260, crop: :fill %>
+     <%  if friend.photo.attached? %>
+                   <%= cl_image_tag friend.photo.key, width: 400, height: 260 %>
                    <% else %>
-                     <%=  image_tag('crowd.png', width: 400, height: 260, crop: :fill) %>
+                     <%=  image_tag('crowd.png', width: 400, height: 260) %>
                   <% end %>
+
 
     <div class="book-container">
       <div class="content">
@@ -39,6 +42,8 @@
     <div class="informations-container">
       <h2 class="title">
       <%= friend.title %> </h2>
+
+      <p class="sub-title">
 
       <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
     <path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
