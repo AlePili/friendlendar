@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def profile
+    # @friendship = Friendship.new
     @my_events = Event.where(user_id: current_user.id)
     @friends = current_user.askers
     @friendship_requests = Friendship.where(receiver: current_user)
