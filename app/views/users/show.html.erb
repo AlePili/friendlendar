@@ -3,18 +3,24 @@
   <div class="row profile-header">
     <p> &larr; <%= link_to "Back to home page", root_path, class: "no-underline" %></p>
     <div class="profile-image col-2">
-      <%= cl_image_tag current_user.photo.key, width: 200, height: 200, class: "avatar-profile" %>
+      <%= cl_image_tag @user.photo.key, width: 200, height: 200, class: "avatar-profile" %>
     </div>
     <div class="profile-info col-10">
-      <h2><%= @current_user.first_name%> <%= @current_user.last_name %></h2>
+      <h2><%= @user.first_name%> <%= @user.last_name %></h2>
       <p>Going to  <%= @events.count %> events </p>
+
+         <% if friendships_url.empty? %>
+         <%= link_to "Add Friend",  add_friend_path(friend: @user) %>
+         <% else %>
+        <a disabled> Friend <i class="fa-sharp fa-solid fa-check"></i></a>
+        <% end %> 
+
     </div>
   </div>
 
-   <%# <%= render "friendships/form", user: user if current_user.askers.where(receiver_id: user.id, asker_id: current_user).empty? %> 
+ 
 
-
-  <div class="row user-events">
+    <div class="row user-events">
     <div class="col-md-7">
       <% @events.each do |event|%>
         <div class="card-event col-12">
@@ -45,7 +51,7 @@
     <% end %>
     </div>
 
-    <div class="col-md-5">
+     <div class="col-md-5">
     <div class="calendar-container">
        <%= month_calendar(events: @events, end_attribute: :end_time) do |date, events| %>
        <%= date %>
@@ -75,3 +81,5 @@
 
   </div>
 </div>
+
+
