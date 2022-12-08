@@ -32,6 +32,9 @@
         <p>👫 <%= @event.availability %> friends can join me</p>
       </div>
       <div class="event-attend-button">
+        <% if @event.full? %>
+        <p> Sorry, this event is already full. Why don't you choose another one? </p>
+        <% else %>
         <% if @event.user == current_user %>
           <h3>Invite your friends</h3>
 
@@ -45,6 +48,7 @@
           <%= f.hidden_field :user_id, :value => current_user.id  %>
           <%= f.submit "Join" if @event.invitations.where(user_id: current_user).empty? %>
           <% end %>
+        <% end %>
         <% end %>
       </div>
       <div class="event-attendees-card">
