@@ -17,4 +17,10 @@ class Event < ApplicationRecord
     end
   end
 
+  def full?
+    max_availability = self.availability
+    atendees = self.invitations.count
+    atendees >= max_availability
+  end
+
 end
