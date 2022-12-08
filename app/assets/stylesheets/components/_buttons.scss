@@ -47,3 +47,32 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
+// approve or reject friends invitations
+
+.btn-flat-slim {
+  color: white;
+  padding: 2px 44px;
+  border-radius: 4px;
+  background: #FE3F84;
+  transition: background 0.3s ease;
+}
+
+.btn-flat-slim:hover {
+  background: #FE72A6;
+  color: white;
+}
+
+
+.btn-flat-secondary-slim {
+  color: #FE3F84;
+  border: 1px solid #FE3F84;
+  padding: 2px 51px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-flat-secondary-slim:hover {
+  opacity: 1;
+  border: 1px solid #FE3F84;
+}
