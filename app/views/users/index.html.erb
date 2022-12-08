@@ -5,6 +5,7 @@
     <% @users.each do |user| %>
       <div class="list-name">
         <div class="row" style="margin-top: 7%">
+
         <h3> <%= user.first_name %> </h3>
         </div>
         <%= link_to user_path(user) do  %>

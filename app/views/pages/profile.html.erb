@@ -30,15 +30,20 @@
                   <% end %>
             <% end %>
             </div>
-            <div class="event-attributes">
-               <h5 class="event-date"><%= event.start_time%></h5>
-               <h5 class="event-title"><%= event.title %></h5>
-               <h5 class="event-location"><%= event.location %></h5>
+            <div class="d-flex flex-column"->
+              <div class="event-attributes">
+                <h5 class="event-date"><%= event.start_time%></h5>
+                <h5 class="event-title"><%= event.title %></h5>
+                <h5 class="event-location"><%= event.location %></h5>
+                <h5 class="event-hots"> Hosted by <%= event.user%></h5>
+              </div>
+              <div class="attend-event">
+              <% if event.user == current_user %>
+                  <%= link_to "Edit", edit_event_path(event), class: "btn btn-flat-slim" %>
+                  <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary-slim" %>
+                <% end %>
+              </div>
             </div>
-             <div class="attend-event">
-                <p><%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %> </p>
-                <p><%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary" %></p>
-             </div>
           </div>
           </div>
         </div>
