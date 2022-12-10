@@ -15,6 +15,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
     else
       @my_events = Event.where(user_id: current_user.id)
       @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
+      # raise
       @events = Event.all
 
     end
