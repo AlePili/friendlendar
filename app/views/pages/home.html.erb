@@ -3,7 +3,7 @@
          <div class="title mt-8">
             <h2><strong> Friendlendar </strong> </h2>
             </div>
-            <h6> Connect your calendar with your friend and share your event.</h6>
+            <h6><strong> Connect your calendar with your friend and share your event.</strong></h6>
             <%# <a class="btn btn-secondary" href="#">Find events</a> %>
                <div class="button-banner">
                <%= link_to "See All", events_path(@event), class: "btn btn-warning" %>
@@ -24,17 +24,17 @@
                     <div class="card">
                          <%=link_to image_tag("1251428.png", size: "150x150"),  new_event_path(@event) %>
                          <h3> Create an event </h3>
-                         <h5>Easy to plan your  event with friendlendar. </h5>
+                         <%# <h5>Easy to plan your  event with friendlendar. </h5> %>
                     </div>
                     <div class="card">
                          <%=image_tag("1255623.png", size: "150x150")%>
                          <h3> Add in your calendar </h3>
-                         <h5> Easy to plan your  event with calendar. </h5>
+                         <%# <h5> Easy to plan your  event with calendar. </h5> %>
                     </div>
                     <div class="card">
                          <%=image_tag("1051245.png", size: "150x150")%>
                          <h3> Share it with your friends  </h3>
-                         <h5> Easy to plan your  event with calendar.</h5>
+                         <%# <h5> Easy to plan your  event with calendar.</h5> %>
                     </div>
                </div>
           </div>
