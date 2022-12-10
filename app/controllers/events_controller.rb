@@ -58,6 +58,12 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
     redirect_to profile_path(@event), status: :see_other
   end
 
+  def full?
+    @event = Event.find(params[:id])
+    @invitation = Invitation.new
+    # @full_event =
+  end
+
   private
 
   def event_params
