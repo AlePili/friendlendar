@@ -3,15 +3,15 @@
   <div class="row profile-header">
     <p> &larr; <%= link_to "Back to home page", root_path, class: "no-underline" %></p>
     <div class="profile-image col-2">
-      <%= cl_image_tag current_user.photo.key, width: 200, height: 200, class: "avatar-profile" %>
+      <%= cl_image_tag @user.photo.key, width: 200, height: 200, class: "avatar-profile" %>
     </div>
     <div class="profile-info col-10">
-      <h2><%= @current_user.first_name%> <%= @current_user.last_name %></h2>
+      <h2><%= @user.first_name%> <%= @user.last_name %></h2>
       <p>Going to  <%= @events.count %> events </p>
     </div>
   </div>
 
-  <div class="row user-events">
+    <div class="row user-events">
     <div class="col-md-7">
       <% @events.each do |event|%>
         <div class="card-event col-12">
@@ -27,41 +27,30 @@
                   <% end %>
             <% end %>
             </div>
-            <div class="d-flex flex-column"->
-              <div class="event-attributes">
-                <h5 class="event-date"><%= event.start_time.strftime("%A, %B %d at %H:%M")%></h5>
-                <h5 class="event-title"><%= event.title %></h5>
-                <h5 class="event-location"><%= event.location %></h5>
-                <h5 class="event-hots"> Hosted by <%= event.user%></h5>
-              </div>
-              <div class="attend-event">
-              <% if event.user == current_user %>
-                  <%= link_to "Edit", edit_event_path(event), class: "btn btn-flat-slim" %>
-                  <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary-slim" %>
-                <% end %>
-              </div>
+            <div class="event-attributes">
+               <h5 class="event-date"><%= event.start_time%></h5>
+               <h5 class="event-title"><%= event.title %></h5>
+               <h5 class="event-location"><%= event.location %></h5>
             </div>
+             <div class="attend-event">
+                <p><%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %> </p>
+                <p><%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary" %></p>
+             </div>
           </div>
           </div>
         </div>
     <% end %>
     </div>
 
-    <div class="col-md-5">
+     <div class="col-md-5">
     <div class="calendar-container">
        <%= month_calendar(events: @events, end_attribute: :end_time) do |date, events| %>
        <%= date %>
 
       <% events.each do |event| %>
-        <% if event.user == current_user %>
-          <div class="calendar-event">
-            <p><%= event.title %></p>
-          </div>
-        <% else %>
-          <div class="calendar-event-friend">
-            <p><%= event.title %></p>
-          </div>
-        <% end %>
+        <div class="calendar-event">
+          <p><%= event.title %></p>
+        </div>
        <% end %>
       <% end %>
     </div>
