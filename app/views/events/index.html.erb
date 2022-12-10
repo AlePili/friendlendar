@@ -1,86 +1,57 @@
 <div class= "outer_box">
-
-    <div class="container">
-<div class="apple">
-
-<%# <%= simple_form_for :query, url: events_path, method: :get, class: "d-flex" do |form| %>
-    <%# <%= form.input :query, as: :check_boxes, collection: @categories, input_html: { class: "tag-selector" } %>
-
-  <%# <%= submit_tag "Search", class: "btn btn-primary" %>
-
-<%# <% end %>
-
-
-<%= form_with url: events_path, method: :get, class: "d-flex" do |form| %>
-  <%= form.collection_check_boxes(:query, @categories, :to_s, :to_s) do |b| %>
-  <div class="tag-item">
-    <%= b.label(class: "form-check-input check_boxes optional tag-selector") %>
-    <%= b.check_box(class: "form-check-input check_boxes optional tag-selector") + b.text %>
+  <div class="container">
+    <div class="apple">
+      <%= form_with url: events_path, method: :get, class: "d-flex" do |form| %>
+        <%= form.collection_check_boxes(:query, @categories, :to_s, :to_s) do |b| %>
+          <div class="tag-item">
+            <%= b.label(class: "form-check-input check_boxes optional tag-selector") %>
+            <%= b.check_box(class: "form-check-input check_boxes optional tag-selector") + b.text %>
+          </div>
+        <% end %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-
-<% end %>
-</div>
-
-    </div>
-
+  <div class="conatiner">
     <h1>Dicover your friends events</h1>
+    <div class="booking-cards-container">
+      <% @friends_events.each do |event| %>
+        <%= link_to event_path(event) do%>
+          <div class="booking-card">
+            <div class="booking-card-header">
+              <%  if event.photo.attached? %>
+                <%= cl_image_tag event.photo.key%>
+              <% else %>
+                <%=  image_tag('crowd.png', width: 400, height: 260) %>
+              <% end %>
+            </div>
+            <div class="booking-card-body">
+              <span class="booking-tag booking-tag-teal"><%= event.category %></span>
+              <h4>
+                <%= event.title %>
+              </h4>
+              <p>📍
+                <%= event.location %>
+              </p>
+              <p>🗓<%= event.start_time.strftime('%A, %B %d at %H:%M')%></p>
+              <div class="booking-user">
+                <%  if event.user.photo.attached? %>
+                  <%= cl_image_tag event.user.photo.key%>
+                <% else %>
+                  <%=  image_tag('crowd.png', width: 400, height: 260) %>
+                <% end %>
 
-    <ul>
-
-    <% @friends_events.each do |friend| %>
-  <li class="booking-card" >
-     <%  if friend.photo.attached? %>
-                   <%= cl_image_tag friend.photo.key, width: 400, height: 260 %>
-                   <% else %>
-
-                     <%=  image_tag('crowd.png', width: 400, height: 260) %>
-                  <% end %>
+                <div class="booking-user-info">
+                  <h5><%= event.user %></h5>
 
 
-    <div class="book-container">
-      <div class="content">
-      <%= link_to "View Details", event_path(friend), class: "btn" %>
+                  <small>👫Availability: <%=event.availability%></small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+      <% end %>
       </div>
-    </div>
-    <div class="informations-container">
-      <h2 class="title">
-      <%= friend.title %> </h2>
-
-      <p class="sub-title">
-
-      <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
-    <path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
-</svg></p>
-      <div class="more-information">
-        <div class="info-and-date-container">
-          <div class="box info">
-            <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-  </svg>
-            <p> <%= friend.location %> </p>
-          </div>
-          <div class="box date">
-            <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
-  </svg>
-            <p> <%= friend.start_time %> </p>
-            <p> <%= friend.end_time %> </p>
-
-    <% end %>
-          </div>
-        </div>
-         <%# <p class="disclaimer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi eveniet perferendis culpa. Expedita architecto nesciunt, rem distinctio</p> %>
-        </div>
-    </div>
-  </li>
-  </ul>
-
-
-
-
-
-
+  </div>
 </div>
