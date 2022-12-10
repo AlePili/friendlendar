@@ -5,24 +5,25 @@
     <% @users.each do |user| %>
       <div class="list-name">
         <div class="row" style="margin-top: 7%">
-          <h3> <%= user.first_name %> </h3>
+        <h3> <%= user.first_name %> </h3>
         </div>
         <%= link_to user_path(user) do  %>
-        <div class="photo">
+          <div class="photo">
             <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, heihgt: 100, width: 100, crop: :fill %>
-              <% else  %>   
-              <%=image_tag("avatar.png", class: "avatar")%>
+                <%= cl_image_tag user.photo.key, heihgt: 100, width: 100, crop: :fill %>
+                <% else  %>   
+                <%=image_tag("avatar.png", class: "avatar")%>
             <% end %>
-        </div>
-      <% end  %>
-      <br>
-      <div class="request">
+          </div>
+        <% end %>
+        <br>
+        <div class="request">
         <div class="btn btn-primary">
         <%= render "friendships/form", user: user if current_user.askers.where(receiver_id: user.id, asker_id: current_user).empty? %>
         </div>
         </div>
-        <% end  %>
+    <% end  %>
     </div>
   </div>
 </div>
+

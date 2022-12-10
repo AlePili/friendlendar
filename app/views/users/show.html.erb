@@ -8,6 +8,13 @@
     <div class="profile-info col-10">
       <h2><%= @user.first_name%> <%= @user.last_name %></h2>
       <p>Going to  <%= @events.count %> events </p>
+         <%# <% if Friendships.where(receiver_id: @friends, asker_id: current_user).empty? %> 
+         <% if @friendship_requests.empty? %>
+         <%= link_to "Add Friend",  add_friend_path(friend: @user), class: "btn btn-secondary" %>
+         <% else %>
+            <a disabled> Friend <i class="fa-sharp fa-solid fa-check"></i></a> 
+        <% end %>
+
     </div>
   </div>
 
@@ -72,3 +79,4 @@
 
   </div>
 </div>
+
