@@ -28,7 +28,7 @@
       <div class="event-location col-4">
       <div class="event-location-card">
         <p>📍<%= @event.location %></p>
-        <p>🗓 <%= @event.start_time %> to <%= @event.end_time %></p>
+        <p>🗓 <%= @event.start_time.strftime("%A, %B %d at %H:%M") %></p>
         <p>👫 <%= @event.availability %> friends can join me</p>
       </div>
       <div class="event-attend-button">
