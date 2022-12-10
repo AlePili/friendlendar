@@ -29,7 +29,7 @@
             </div>
             <div class="d-flex flex-column"->
               <div class="event-attributes">
-                <h5 class="event-date"><%= event.start_time%></h5>
+                <h5 class="event-date"><%= event.start_time.strftime("%A, %B %d at %H:%M")%></h5>
                 <h5 class="event-title"><%= event.title %></h5>
                 <h5 class="event-location"><%= event.location %></h5>
                 <h5 class="event-hots"> Hosted by <%= event.user%></h5>
