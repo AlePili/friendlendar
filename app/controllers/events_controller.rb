@@ -15,6 +15,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
     else
       @my_events = Event.where(user_id: current_user.id)
       @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
+      # raise
       @events = Event.all
 
     end
@@ -58,11 +59,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
     redirect_to profile_path(@event), status: :see_other
   end
 
-  def full?
-    @event = Event.find(params[:id])
-    @invitation = Invitation.new
-    # @full_event =
-  end
+
 
   private
 
