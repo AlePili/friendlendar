@@ -5,14 +5,14 @@
       <h1>FriendLendar.</h1>
     <% end %>
 
-    <div class="search-box">
-      <%= form_with url: events_path, method: :get, class: "d-flex" do %>
+    <div class="search">
+      <%= form_with url: events_path, method: :get, class: "d-flex search-box" do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find an event"
+          placeholder: "Search category or event"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "search-btn" %>
       <% end %>
     </div>
 

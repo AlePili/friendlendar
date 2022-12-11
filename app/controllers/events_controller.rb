@@ -8,17 +8,14 @@ class EventsController < ApplicationController
     @friends = current_user.askers
 
     if params[:query].present?
-      @my_events = Event.where(user_id: current_user.id)
-      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id)).and(Event.where(category: params[:query]))
+      @my_events = Event.where(user_id: current_user.id).where
+      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id)).and(Event.where("category ILIKE :query OR title ILIKE :query", query: "%#{params[:query]}%"))
     else
       @my_events = Event.where(user_id: current_user.id)
       @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
       @events = Event.all
     end
 
-    if params[:query].present?
-      @events = @events.where("title ILIKE ?", "%#{params[:query]}%")
-    end
   end
 
 
