@@ -22,20 +22,20 @@
 }
 
 
-.search-box button {
-  height: 32px;
-  width: 32px;
-  margin-left: -5px;
-  background: LightGrey;
-  font-size: 17px;
+.search-btn {
+  background-color: #FE3F84;
+  border-radius: 0px 10px 10px 0px;
   border: none;
-  margin-top: 14px;
-  margin-right: 16px;
+  color: white;
+}
+
+.search-btn:hover {
+  background-color: #fc1e70;
 }
 
 .search-box input[type=text] {
-  height: 26px;
+  height: 32px;
   font-size: 17px;
-  width: 200px;
-  margin-top: 14px;
+  width: 300px;
+  border-radius: 10px 0px 0px 10px;
 }

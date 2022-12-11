@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'you must sign in first!'
+  before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'you must sign in first!'
 
   def index
 
@@ -7,19 +7,15 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy], notice: 'yo
     @categories = @events.map{|event| event.category}.uniq()
     @friends = current_user.askers
 
-
     if params[:query].present?
-      @my_events = Event.where(user_id: current_user.id)
-      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id)).and(Event.where(category: params[:query]))
-      #raise
+      @my_events = Event.where(user_id: current_user.id).where
+      @friends_events = Event.where(user_id: @friends.pluck(:receiver_id)).and(Event.where("category ILIKE :query OR title ILIKE :query", query: "%#{params[:query]}%"))
     else
       @my_events = Event.where(user_id: current_user.id)
       @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
-      # raise
       @events = Event.all
-
     end
-  # raise
+
   end
 
 

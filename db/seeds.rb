@@ -20,7 +20,6 @@ user2 = User.new(first_name: "Allie", last_name: "Pilero", email: "admin@admino.
 user2.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 user2.save
 
-
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670064833/development/108416241_q8vw70.jpg")
 user3 = User.new(first_name: "Adriana", last_name: "Harseva", email: "admin3@admino.com", password: "1234567")
 user3.photo.attach(io: file, filename: "user.png", content_type: "image/png")
