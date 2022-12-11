@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
       <h1>FriendLendar.</h1>
     <% end %>
@@ -29,12 +29,12 @@
           </li>
 
           <li class="nav-item dropdown">
-            <%# <% if current_user.photo.attached? %> 
+            <%# <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
            <%# <% else  %>
             <%# <div class="avatar dropdown-toggle" style="width: 40;height: 40;background-color: blue"> %>
             <%# </div> %>
-            <%# <% end %> 
+            <%# <% end %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "Browse Events", events_path, class: "dropdown-item" %>

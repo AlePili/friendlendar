@@ -12,8 +12,17 @@ class FriendshipsController < ApplicationController
          redirect_to users_path
       end
    end 
+ 
+   def add_friend
+      @reciever = User.find(params[:friend])
+      @friendship = Friendship.new
+      @friendship.receiver = @reciever
+      @friendship.asker = current_user
+      if @friendship.save!
+         redirect_to users_path
+      end
+   end 
 
-
-
+   
 
 end

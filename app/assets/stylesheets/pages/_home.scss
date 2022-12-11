@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
-// Specific CSS for your home-page
+
 .banner {
     background-size: cover;
     background-position: center;
@@ -17,12 +17,9 @@
   .banner h2 {
     margin: 0;
     color: #ec6262;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    margin-left: 10%;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
     text-align: center;
-    // margin-top: 15%;
-    font-size: xxx-large;
-    margin-top: 12%;
+    font-size: 80px;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
@@ -32,7 +29,7 @@
     color: rgb(235, 165, 25);
     opacity: .7;
     text-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-    margin-left: 43%;
+    // margin-left: 43%;
   }
 
   .banner-img {
@@ -41,6 +38,11 @@
     position: absolute;
     top: 10%;
     left: 50%;
+  }
+
+  .button-banner{
+    margin-left: 47%;
+    margin-top: 5%;
   }
 
   .first-part {
@@ -115,16 +117,16 @@
 
   }
 
-  .button {
-    margin-top: 3%;
-    transition: width 2s, height 2s, transform 2s;
-  }
+  // .button {
+  //   margin-top: 3%;
+  //   transition: width 2s, height 2s, transform 2s;
+  // }
 
-  .button:hover {
+  // .button:hover {
 
-    // transition: 1.5s ease;
-    transform: rotate(360deg)
-  }
+  //   // transition: 1.5s ease;
+  //   transform: rotate(360deg)
+  // }
 
   .section {
     display: flex;
@@ -218,3 +220,10 @@
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
   }
+
+
+
+  // .simple-calendar td { 
+  //   height: 100px !important; 
+  //   min-width: 95px !important; 
+  // }

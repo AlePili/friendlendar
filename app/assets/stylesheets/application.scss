@@ -13,10 +13,13 @@
 @import "components/events_components";
 @import "components/footer";
 
-Html body a {
+html body a {
   text-decoration: none !important;
-  color:black;
+  color:black !important;
 }
+
+
+
 
 
 

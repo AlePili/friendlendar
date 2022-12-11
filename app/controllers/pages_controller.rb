@@ -5,12 +5,24 @@ class PagesController < ApplicationController
   end
 
   def profile
+    # @friendship = Friendship.new
     @my_events = Event.where(user_id: current_user.id)
     @friends = current_user.askers
     @friendship_requests = Friendship.where(receiver: current_user)
     @friends_events = Event.where(user_id: @friends.pluck(:receiver_id))
     @events = @my_events + @friends_events
 
+
+    @approved_invitations = []
+
+    @events.each do |event|
+      invitations = event.invitations.where(status: "approved")
+      invitations.each do |inv|
+        @approved_invitations << inv
+      end
+    end
+    @approved_events =  @approved_invitations.map { |inv| inv.event }
+    @events = @my_events + @approved_events
   end
 
   def index
