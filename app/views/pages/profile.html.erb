@@ -5,10 +5,31 @@
     <div class="profile-image col-2">
       <%= cl_image_tag current_user.photo.key, width: 200, height: 200, class: "avatar-profile" %>
     </div>
-    <div class="profile-info col-10">
+    <div class="profile-info col-5">
       <h2><%= @current_user.first_name%> <%= @current_user.last_name %></h2>
       <p>Going to  <%= @events.count %> events </p>
+      <div class="btn btn-flat"> Edit Profile </div>
     </div>
+
+      <div class="profile-friends col-5">
+      <h5>Top friends</h3>
+        <div class="friend-photos">
+          <div class = "d-flex flex-row">
+            <% @friends.each do |friend| %>
+            <%= link_to user_path(friend.receiver) do  %>
+              <div class="friends-avatars"><%= cl_image_tag friend.receiver.photo.key, width: 70, height: 70, crop: :fill, class: "avatar-top-friend" if friend.receiver.photo.attached? %></div>
+              <div class="avatar-name"><h5> <%= friend.receiver.first_name %></div>
+            <% end %>
+            <% end %>
+
+            <% @friendship_requests.each do |friend_request| %>
+            <%= link_to user_path(friend_request.asker) do  %>
+            <div class="friends-avatars"><%= cl_image_tag friend_request.asker.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-top-friend" if friend_request.receiver.photo.attached? %></div>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
   </div>
 
   <div class="row user-events">
@@ -73,23 +94,5 @@
     </div>
   </div>
   </div>
-  <div class="row user-friends">
-    <h2>Friends</h2>
-    <div class="friend-photos">
-    <% @friends.each do |friend| %>
-    <%= link_to user_path(friend.receiver) do  %>
-      <%= cl_image_tag friend.receiver.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-friendship" if friend.receiver.photo.attached? %>
-    <% end %>
-    <% end %>
 
-    <% @friendship_requests.each do |friend_request| %>
-    <%= link_to user_path(friend_request.asker) do  %>
-     <%= cl_image_tag friend_request.asker.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-friendship" if friend_request.receiver.photo.attached? %>
-    <% end %>
-
-    <% end %>
-   </div>
-
-
-  </div>
 </div>

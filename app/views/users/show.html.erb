@@ -10,19 +10,19 @@
       <p>Going to  <%= @events.count %> events </p>
 
          <% if @friendship_requests.empty? %>
-         <%# <%= link_to "Add Friend",  add_friend_path(friend: @user), class: "btn btn-secondary" %> 
+         <%# <%= link_to "Add Friend",  add_friend_path(friend: @user), class: "btn btn-secondary" %>
          <% else %>
-            <a disabled> Friend <i class="fa-sharp fa-solid fa-check"></i></a> 
+            <a disabled> Friend <i class="fa-sharp fa-solid fa-check"></i></a>
         <% end %>
 
 
     </div>
   </div>
 
-    <div class="row user-events">
-    <div class="col-md-7">
+  <div class="row user-events">
+    <div class="col-md-6">
       <% @events.each do |event|%>
-        <div class="card-event col-12">
+        <div class="card-event">
 
           <div class="row event-cards">
             <div class="d-flex align-items-center">
@@ -35,22 +35,33 @@
                   <% end %>
             <% end %>
             </div>
-            <div class="event-attributes">
-               <h5 class="event-date"><%= event.start_time%></h5>
-               <h5 class="event-title"><%= event.title %></h5>
-               <h5 class="event-location"><%= event.location %></h5>
+            <% if event.invitations.where(status: "approved") %>
+            <div class="d-flex flex-column">
+              <div class="event-attributes">
+                <h5 class="event-title"> 🎟 <%= event.title %></h5>
+                <h5 class="event-date">🗓 <%= event.start_time.strftime("%A, %B %d at %H:%M")%></h5>
+                <h5 class="event-location"> 📍 <%= event.location %></h5>
+                <% if event.user == current_user %>
+                <h5 class="event-host"> <%= cl_image_tag event.user.photo.key, width: 16, height: 16, class: "avatar-event-card"%> Hosted by you</h5>
+                <% else %>
+                <h5 class="event-host"> <%= cl_image_tag event.user.photo.key, width: 16, height: 16, class: "avatar-event-card"%> Hosted by <%= event.user%></h5>
+                <% end %>
+              </div>
+              <div class="attend-event">
+              <% if event.user == current_user %>
+                  <%= link_to "Edit", edit_event_path(event), class: "btn btn-flat-slim" %>
+                  <%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary-slim" %>
+                <% end %>
+              <% end %>
+              </div>
             </div>
-             <div class="attend-event">
-                <p><%= link_to "Edit", edit_event_path(event), class: "btn btn-flat" %> </p>
-                <p><%= link_to "Delete", event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat-secondary" %></p>
-             </div>
           </div>
           </div>
         </div>
     <% end %>
     </div>
 
-     <div class="col-md-5">
+     <div class="col-md-6">
     <div class="calendar-container">
        <%= month_calendar(events: @events, end_attribute: :end_time) do |date, events| %>
        <%= date %>
@@ -64,20 +75,23 @@
     </div>
   </div>
   </div>
-  <div class="row user-friends">
+ <div class="row user-friends">
     <h2>Friends</h2>
+    <div class="friend-photos">
     <% @friends.each do |friend| %>
-     <%= cl_image_tag friend.receiver.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-friendship" if friend.receiver.photo.attached? %>
-
+    <%= link_to user_path(friend.receiver) do  %>
+      <%= cl_image_tag friend.receiver.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-friendship" if friend.receiver.photo.attached? %>
+    <% end %>
     <% end %>
 
     <% @friendship_requests.each do |friend_request| %>
+    <%= link_to user_path(friend_request.asker) do  %>
      <%= cl_image_tag friend_request.asker.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-friendship" if friend_request.receiver.photo.attached? %>
-
+    <% end %>
 
     <% end %>
+   </div>
 
 
   </div>
 </div>
-
