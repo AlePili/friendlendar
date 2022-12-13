@@ -11,14 +11,13 @@
      </div>
 </div>
 
-<div class="d-flex justify-content-center align-items-center">
-     <div>  What's friendlendar </div>
-     <div class="arrow bounce">
-          <a class="fa fa-arrow-down fa-2x" href="#scroll_anchor_cards"></a>
-     </div>
-     <div>  </div>
+
+<div class="arrow bounce">
+     <i class="fa-solid fa-chevron-down fa-2x"></i>
+     <a class="scroll-link" href="#scroll_anchor_cards">Find out more</small></a>
 </div>
-<div class="text-center">
+
+<div class="text-center" id="scroll_anchor_cards">
 
           <div class="friend">
                <h2> What's friendlendar </h2>
@@ -26,9 +25,8 @@
                Wanna meet your friends but you never know their availability? Join Friendledar. Find the most convenient time to meet up</p>
                <div class="intro">
                <h2><strong> How it works </strong></h2>
-               <a id="scroll_anchor_cards">
 
-               <div class="icons" >
+               <div class="icons">
                     <div class="card">
                          <%=link_to image_tag("1251428.png", size: "150x150"),  new_event_path(@event) %>
                          <h3> Create an event </h3>
