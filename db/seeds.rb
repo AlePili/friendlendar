@@ -128,7 +128,27 @@ brunch = Event.create(title: "Botomless Brunch", location: "7 Boundary, E2 7JE",
 brunch.photo.attach(io: file, filename: "brunch.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670665512/development/download_4_itvh24.jpg")
-candlelit_concert = Event.create(title: "Hans Zimmer Candlelit Concert", location: "10 Godliman St,  EC4V 5AJ", category: "Music", description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended)", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:user1)
+candlelit_concert = Event.create(title: "Hans Zimmer Candlelit Concert",
+  location: "10 Godliman St,  EC4V 5AJ",
+  category: "Music",
+  description: "I have two tickets for the Hans Zimmer tribute in St. Pauls. Supposed to be lit (no pun intended) Below are the details for the event:
+⭐️ Candlelight concerts bring the magic of a live, multi-sensory musical experience to awe-inspiring locations never before used for this purpose in London. Buy your tickets now to discover the music of Hans Zimmer's Best Works at Central Hall Westminster under the gentle glow of candlelight.
+
+📍 Venue: Central Hall Westminster
+📅 Dates and times: various dates
+⏳ Duration: 60 minutes (doors open 45 mins prior to the start time and late entry is not permitted)
+👤 Age requirement: 8+. Anyone under the age of 16 must be accompanied by an adult
+♿️ Accessibility: this venue is wheelchair accessible
+
+Programme
+
+Sherlock Holmes Discombobulate
+Inception Time
+Gladiator Now We Are Free
+Pearl Harbor Tennessee",
+start_time: DateTime.new(2022,2,7,5,2,6),
+availability:2,
+user:user1)
 candlelit_concert.photo.attach(io: file, filename: "candlelit.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670665640/development/cristian-castillo-73pyV0JJOmE-unsplash_jac8hb.jpg")

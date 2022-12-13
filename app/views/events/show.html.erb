@@ -1,7 +1,7 @@
-<div class="event-header">
+<%# <div class="event-header"> %>
   <div class="event-card">
     <%  if @event.photo.attached?%>
-      <%= cl_image_tag @event.photo.key, width: 400, height: 260, crop: :fill %>
+      <%= cl_image_tag @event.photo.key, crop: :fill %>
     <% else %>
       <%=  image_tag('event_default.png', width: 400, height: 260, crop: :fill) %>
     <% end %>
@@ -38,15 +38,15 @@
         <% if @event.user == current_user %>
           <h3>Invite your friends</h3>
 
-          <%= simple_form_for([@event, @invitation])do |f| %>
+          <div class="invitation"><%= simple_form_for([@event, @invitation])do |f| %>
           <%= f.input :user_id, collection: User.all %>
-          <%= f.submit "Invite", class: "btn btn-flat-secondary" %>
+          <%= f.submit "Invite", class: "btn btn-flat-secondary" %></div>
           <% end %>
           <% else %>
           <h3>Join this event</h3>
           <%= simple_form_for([@event, @invitation])do |f| %>
           <%= f.hidden_field :user_id, :value => current_user.id  %>
-          <%= f.submit "Join" if @event.invitations.where(user_id: current_user).empty? %>
+          <%= f.submit "Join", class: "btn btn-flat" if @event.invitations.where(user_id: current_user).empty? %>
           <% end %>
         <% end %>
         <% end %>
@@ -101,4 +101,4 @@
     </div>
 
   </div>
-</div>
+<%# </div> %>
