@@ -1,13 +1,11 @@
 // Specific CSS for your home-page
 
 .banner {
-    background-size: cover;
-    background-position: center;
-    // position: relative;
-    padding: 150px 0;
-    margin-left: 10px;
-    margin-right: 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('peoples.png');
+  background-size: cover;
+  padding: 150px 0;
 }
+
 
 .intro {
   font-size: larger;
@@ -15,19 +13,30 @@
 }
 
   .banner h2 {
-    margin: 0;
-    color: #ec6262;
+    color: #FE3F84;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    text-align: center;
-    font-size: 80px;
+    text-align: left;
+    font-size: 100px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    // -webkit-text-stroke: 1px black; /* width and color */
+  }
+
+  .banner-button {
+    color: #ffffff;
+    background-color: #FE3F84;
+    padding: 15px 30px;
+    border-radius: 10px;
+  }
+
+  a.banner-button:hover {
+    color: white;
+    background-color: #e23977;
   }
 
   .banner h6 {
     margin-top: 20px;
-    font-size: 20px;
-    color: rgb(235, 165, 25);
-    opacity: .7;
+    font-size: 30px;
+    color: #fde4e4;
     text-shadow: 1px 1px 10px rgba(0,0,0,0.2);
     // margin-left: 43%;
   }
@@ -42,7 +51,7 @@
 
   .button-banner{
     margin-left: 47%;
-    margin-top: 5%;
+    margin-top: 7%;
   }
 
   .first-part {
@@ -86,8 +95,8 @@
     margin-top: 5%;
   }
 
-  .friend h2 {
-    color: #c95e85
+   h2 {
+    color: #FE3F84
 
   }
 .friend p {

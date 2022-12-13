@@ -1,12 +1,11 @@
 <div class="first-part">
-     <div class="banner" style="background:linear-gradient(0deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6)),  url(<%= asset_path 'peoples.png' %>); background-size: cover">
-         <div class="title mt-8">
+     <div class="banner">
+         <div class="title mt-8 ms-5">
             <h2><strong> Friendlendar </strong> </h2>
-            </div>
             <h6> Connect your calendar with your friend and share your event.</h6>
-            <%# <a class="btn btn-secondary" href="#">Find events</a> %>
+          </div>
                <div class="button-banner">
-               <%= link_to "See All", events_path(@event), class: "btn btn-warning" %>
+               <%= link_to "Browse events", events_path(@event), class: "banner-button" %>
           </div >
         </div>
      </div>
