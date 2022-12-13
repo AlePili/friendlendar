@@ -1,16 +1,22 @@
 <div class="container-form">
-    <h2> Create an event </h2>
-
- <%= simple_form_for @event do |f| %>
-    <%= f.input :title %>
-    <%= f.input :location %>
-    <%= f.input :category %>
-    <%= f.input :description %>
-    <%= f.input :visibility %>
-    <%= f.input :start_time, as: :date, html5:true %>
-    <%= f.input :end_time, as: :date, html5:true %>
-    <%= f.input :availability %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit class: "btn btn-flat" %>
- <% end %>
+ <h2> Create an event </h2>
+ <div class="mt-4">
+   <%= simple_form_for @event do |f| %>
+      <%= f.input :title %>
+      <%= f.input :location %>
+      <%= f.input :category, :collection => %w[Drinks Concert Festival Worksshop Classes] %> 
+      <%= f.input :description %>
+         <div class="row">
+            <div class="col-6">
+            <%= f.input :start_time, as: :date, html5:true, label: "Date" %> 
+            </div>
+            <div class="col-6">
+               <%= f.input :start_time, as: :time, html5:true %> 
+            </div>
+         </div>
+         <%= f.input :availability, collection: 2..30 %>
+         <%= f.input :photo, as: :file %>
+         <%= f.submit class: "btn btn-flat" %>
+   <% end %>
+ </div>
 </div>
