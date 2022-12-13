@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_191332) do
 
   create_table "invitations", force: :cascade do |t|
     t.string "status", default: "pending"
-    t.bigint "event_id", null: false
+    t.bigint "event_id", null: false 
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
