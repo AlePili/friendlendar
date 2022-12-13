@@ -1,14 +1,22 @@
 <div class="first-part">
      <div class="banner">
-         <div class="title mt-8 ms-5">
-            <h2><strong> Friendlendar </strong> </h2>
-            <h6> Connect your calendar with your friend and share your event.</h6>
+          <div class="title mt-8 ms-5">
+               <h2><strong> Friendlendar </strong> </h2>
+               <h6 class="ms-5"> Connect your calendar with your friend and share your event</h6>
           </div>
-               <div class="button-banner">
-               <%= link_to "Browse Events", events_path(@event), class: "btn btn-flat" %>
-          </div >
-        </div>
+          <div class="banner-button-container">
+               <%= link_to "Browse Events", events_path(@event), class: "banner-button" %>
+          </div>
+          </div>
      </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+     <div>  What's friendlendar </div>
+     <div class="arrow bounce">
+          <a class="fa fa-arrow-down fa-2x" href="#scroll_anchor_cards"></a>
+     </div>
+     <div>  </div>
 </div>
 <div class="text-center">
 
@@ -18,6 +26,7 @@
                Wanna meet your friends but you never know their availability? Join Friendledar. Find the most convenient time to meet up</p>
                <div class="intro">
                <h2><strong> How it works </strong></h2>
+               <a id="scroll_anchor_cards">
 
                <div class="icons" >
                     <div class="card">
@@ -39,10 +48,5 @@
           </div>
      </div>
 </div >
-<%# <div class="section" style="background-color: orange">
- <%=image_tag("crowd.png", size: "750x600")%>
- <%# </div> %>
- <%# <div class="text-align-right"> %>
 
 
-<%# </div> %>
