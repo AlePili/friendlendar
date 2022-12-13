@@ -74,6 +74,10 @@
   margin: 0;
 }
 
+.event-card-host {
+  position: absolute;
+  right: 134px;
+}
 
 .event-card .event-card-infos {
   padding: 16px;
@@ -85,13 +89,13 @@
 
 .event-card-infos .card-user {
   position: absolute;
-  right: 16px;
+  right: 134px;
   top: -20px;
   width: 40px;
 }
 
 .event-card-title {
-  padding: 0 100px;
+  padding: 0 110px;
 }
 
 .event-requests-cards {
@@ -112,9 +116,4 @@
 
 .event-requests-cards p {
   margin: 4px;
-}
-
-.invitation {
-  color: white;
-  margin-top: -20px;
 }

@@ -17,88 +17,88 @@
 
 
   <div class="container">
-    <div class="row event-details">
-      <div class="col-md-8">
-        <h2 class="event-details">Details</h2>
-        <% sentences=@event.description.split("\n") %>
-        <% sentences.each do |sentence| %>
-        <p class="event-details"><%= sentence.strip %></p>
-        <% end %>
-      </div>
-      <div class="event-location col-4">
-      <div class="event-location-card">
-        <p>📍<%= @event.location %></p>
-        <p>🗓 <%= @event.start_time.strftime("%A, %B %d at %H:%M") %></p>
-        <p>👫 <%= @event.availability %> friends can join me</p>
-      </div>
-      <div class="event-attend-button">
-        <% if @event.full? %>
-        <p> Sorry, this event is already full. Why don't you choose another one? </p>
-        <% else %>
-        <% if @event.user == current_user %>
-          <h3>Invite your friends</h3>
-
-          <div class="invitation"><%= simple_form_for([@event, @invitation])do |f| %>
-          <%= f.input :user_id, collection: User.all %>
-          <%= f.submit "Invite", class: "btn btn-flat-secondary" %></div>
+    <div class="container-small">
+      <div class="row event-details">
+        <div class="col-md-8">
+          <h2 class="event-details">Details</h2>
+          <% sentences=@event.description.split("\n") %>
+          <% sentences.each do |sentence| %>
+          <p class="event-details"><%= sentence.strip %></p>
           <% end %>
+        </div>
+        <div class="event-location col-4">
+        <div class="event-location-card">
+          <p>📍<%= @event.location %></p>
+          <p>🗓 <%= @event.start_time.strftime("%A, %B %d at %H:%M") %></p>
+          <p>👫 <%= @event.availability %> friends can join me</p>
+        </div>
+        <div class="event-attend-button">
+          <% if @event.full? %>
+          <p> Sorry, this event is already full. Why don't you choose another one? </p>
           <% else %>
-          <h3>Join this event</h3>
-          <%= simple_form_for([@event, @invitation])do |f| %>
-          <%= f.hidden_field :user_id, :value => current_user.id  %>
-          <%= f.submit "Join", class: "btn btn-flat" if @event.invitations.where(user_id: current_user).empty? %>
-          <% end %>
-        <% end %>
-        <% end %>
-      </div>
-      <div class="event-attendees-card">
-        <h2>All attendees</h2>
+          <% if @event.user == current_user %>
+            <h3>Invite your friends</h3>
 
-      <% if @event.invitations.where(status: "approved").count >= 1 %>
-            <% @event.invitations.where(status: "approved").each do |invite| %>
-              <%= cl_image_tag invite.user.photo.key, width: 40, height: 40, class: "avatar dropdown-toggle" %>
+            <div class="invitation"><%= simple_form_for([@event, @invitation])do |f| %>
+            <%= f.input :user_id, collection: @friends, label: false %>
+            <%= f.submit "Invite", class: "btn btn-flat-secondary" %></div>
             <% end %>
-      <% else %>
-          <p>Be the first one to attend</p>
-      <% end %>
+            <% else %>
+            <h3>Join this event</h3>
+            <%= simple_form_for([@event, @invitation])do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id  %>
+            <%= f.submit "Join", class: "btn btn-flat" if @event.invitations.where(user_id: current_user).empty? %>
+            <% end %>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="event-attendees-card">
+          <h2>All attendees</h2>
 
-      </div>
-      </div>
-    </div>
+        <% if @event.invitations.where(status: "approved").count >= 1 %>
+              <% @event.invitations.where(status: "approved").each do |invite| %>
+                <%= cl_image_tag invite.user.photo.key, width: 40, height: 40, class: "avatar dropdown-toggle" %>
+              <% end %>
+        <% else %>
+            <p>Be the first one to attend</p>
+        <% end %>
 
-      <% if @event.user == current_user %>
-      <h2>All Requests</h2>
-    <div class="event-requests row">
-            <% @event.invitations.each do |invitation| %>
-        <div class="event-requests-cards col-3 m-1">
-          <div class="row">
-            <div class="col-12">
-              <%= cl_image_tag invitation.user.photo.key, class: "avatar-approved-user", crop: :fill %>
-               <div class="event-request-name"> <p style="text-align: center"><%= invitation.user.first_name %> <%= invitation.user.last_name %>
-              <% if invitation.status == "approved" %>
-              ✔️
-              <% end %></p>
+        </div>
+        </div>
+      </div>
+
+        <% if @event.user == current_user %>
+        <h2>All Requests</h2>
+      <div class="event-requests row">
+              <% @event.invitations.each do |invitation| %>
+          <div class="event-requests-cards col-3 m-1">
+            <div class="row">
+              <div class="col-12">
+                <%= cl_image_tag invitation.user.photo.key, class: "avatar-approved-user", crop: :fill %>
+                <div class="event-request-name"> <p style="text-align: center"><%= invitation.user.first_name %> <%= invitation.user.last_name %>
+                <% if invitation.status == "approved" %>
+                ✔️
+                <% end %></p>
+                </div>
+              </div>
+            </div>
+            <div class="invitation-buttons">
+              <div class="row approve-invitation-button">
+                  <%= simple_form_for [@event, invitation] do |f| %>
+                    <%= f.hidden_field :status, value: "approved" %>
+                    <%= f.submit "Approve", class: "btn btn-flat-slim" %>
+                  <% end %>
+              </div>
+              <div class="row reject-invitation-button">
+                  <%= simple_form_for [@event, invitation] do |f| %>
+                    <%= f.hidden_field :status, value: "rejected" %>
+                    <%= f.submit "Reject", class: "btn btn-flat-secondary-slim" %>
+                  <% end %>
               </div>
             </div>
           </div>
-          <div class="invitation-buttons">
-            <div class="row approve-invitation-button">
-                <%= simple_form_for [@event, invitation] do |f| %>
-                  <%= f.hidden_field :status, value: "approved" %>
-                  <%= f.submit "Approve", class: "btn btn-flat-slim" %>
-                <% end %>
-            </div>
-            <div class="row reject-invitation-button">
-                <%= simple_form_for [@event, invitation] do |f| %>
-                  <%= f.hidden_field :status, value: "rejected" %>
-                  <%= f.submit "Reject", class: "btn btn-flat-secondary-slim" %>
-                <% end %>
-            </div>
-          </div>
-        </div>
+              <% end %>
             <% end %>
-          <% end %>
+      </div>
     </div>
-
   </div>
-<%# </div> %>
