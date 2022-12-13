@@ -26,6 +26,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @invitation = Invitation.new
+    user_friendships = current_user.askers
+    friends_ids = user_friendships.pluck(:receiver_id)
+    @friends = User.where(id: friends_ids)
   end
 
   def create

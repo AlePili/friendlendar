@@ -3,6 +3,7 @@
 
  <%= simple_form_for @event do |f| %>
     <%= f.input :title %>
+    <%= f.rich_text_area :rich_body %>
     <%= f.input :location %>
     <%= f.input :category %>
     <%= f.input :description %>

@@ -4,7 +4,7 @@
     <h1 class="text-left ps-2">Dicover your friends events (<%= @friends_events.count %>)</h1>
     <div class="row">
       <% @friends_events.each do |event| %>
-        <%= link_to event_path(event), class: "col-3" do %>
+        <%= link_to event_path(event), class: "col-3 friends-events" do %>
           <div class="booking-card">
             <div class="booking-card-header">
               <%  if event.photo.attached? %>
@@ -21,7 +21,7 @@
                 <span class="booking-tag booking-tag-teal mb-3"><%= event.category %></span>
                 <small >👫Availability: <%=event.availability%></small>
               </div>
-              
+
               <div class="row justify-content-between">
                 <p class="col-5"><strong>📍 Location:</strong></p>
                 <p class="col-7"><%= event.location %></p>
