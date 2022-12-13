@@ -3,13 +3,49 @@
 .banner {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('peoples.png');
   background-size: cover;
-  padding: 150px 0;
+  padding: 180px 0;
 }
 
+.arrow {
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY( 5px);
+  }
+  60% {
+    transform: translateY( 15px);
+  }
+}
+
+.scroll-link {
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.scroll-link:hover {
+  text-decoration: none;
+  color: rgb(69, 69, 69);
+}
 
 .intro {
   font-size: larger;
   color: orange;
+}
+
+.title {
+  margin-bottom: 60px;
 }
 
   .banner h2 {
@@ -24,7 +60,7 @@
   .banner-button {
     color: #ffffff;
     background-color: #FE3F84;
-    padding: 15px 30px;
+    padding: 20px 40px;
     border-radius: 10px;
   }
 
@@ -52,6 +88,12 @@
   .button-banner{
     margin-left: 47%;
     margin-top: 7%;
+  }
+
+  .banner-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .first-part {
