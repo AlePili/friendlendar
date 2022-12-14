@@ -5,7 +5,6 @@
 
 }
 
-
 .event-banner {
   background-size: cover;
   background-position: center;
@@ -107,4 +106,9 @@
 
 a.friends-events:hover {
   color: black;
+}
+
+.friends-events:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
 }

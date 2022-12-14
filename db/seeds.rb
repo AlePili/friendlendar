@@ -160,7 +160,7 @@ christmas_fundraiser = Event.create(title: "Christmas Fundraiser", location: "5 
 christmas_fundraiser.photo.attach(io: file, filename: "christmas_fundraiser.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670665919/development/manuel-nageli-NsgsQjHA1mM-unsplash_1_alob0p.jpg")
-vivaldi = Event.create(title: "Vivaldi - The Four Seasons by Candlelight", location: "Freemasons Hall 60 Great Queen Street London WC2B 5AZ", category: "Music", description: "Prepare yourself for a musical feast in the majestic, glistening, gilded setting of The Grand Temple at Freemasons' Hall, in the heart of Covent Garden. Sit back and relax as the joys of Vivaldi's exuberant 'Four Seasons' are brought to you by a group of London's finest musicians from Belmont Ensemble of London and Trafalgar Sinfonia .", start_time: DateTime.new(2022,12,31,14,5,6), availability:1, user:user2)
+vivaldi = Event.create(title: "Vivaldi - The Four Seasons by Candlelight", location: "Freemasons Hall 60, WC2B 5AZ", category: "Music", description: "Prepare yourself for a musical feast in the majestic, glistening, gilded setting of The Grand Temple at Freemasons' Hall, in the heart of Covent Garden. Sit back and relax as the joys of Vivaldi's exuberant 'Four Seasons' are brought to you by a group of London's finest musicians from Belmont Ensemble of London and Trafalgar Sinfonia .", start_time: DateTime.new(2022,12,31,14,5,6), availability:1, user:user2)
 vivaldi.photo.attach(io: file, filename: "vivaldi.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670665964/development/raphael-lovaski-RjD01Is-KnI-unsplash_x1qega.jpg")
@@ -168,11 +168,11 @@ swiftogeddon = Event.create(title: "non-stop Swifty all night", location: "490 C
 swiftogeddon.photo.attach(io: file, filename: "swiftogeddon.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670666007/development/raphael-schaller-zbUvPw1wUIw-unsplash_mzyncs.jpg")
-dj_nights = Event.create(title: "THE ICONIC SAXON SOUND DJS AT BOISDALE!", location: "15 Cabot Square, E14 4QT", category: "Nightclub", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,12,27,1,2,0), availability:4, user:user2)
+dj_nights = Event.create(title: "The Iconic Saxon Sound at Boisdale!", location: "15 Cabot Square, E14 4QT", category: "Nightclub", description: "Who wants to join me on a hot girl walk with Ruby", start_time: DateTime.new(2022,12,27,1,2,0), availability:4, user:user2)
 dj_nights.photo.attach(io: file, filename: "dj_nights.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670666075/development/brooke-lark-aGjP08-HbYY-unsplash_prqzul.jpg")
-reminisce_brunch = Event.create(title: "This Soca Brunch takes us back to Carnival", location: "7 Clapham High Street , SW4 7TB", category: "Food", description: "J﻿oin us for this long-awaited brunch in our series!", start_time: DateTime.new(2022,12,15,5,2,6), availability: 15, user:angelee)
+reminisce_brunch = Event.create(title: "This Soca Brunch takes us back to Carnival", location: "7 Clapham High St, SW4 7TB", category: "Food", description: "J﻿oin us for this long-awaited brunch in our series!", start_time: DateTime.new(2022,12,15,5,2,6), availability: 15, user:angelee)
 reminisce_brunch.photo.attach(io: file, filename: "reminisce_brunch.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670666351/development/kelsey-knight-udj2tD3WKsY-unsplash_gcg1ix.jpg")
@@ -180,7 +180,7 @@ wineknow = Event.create(title: "Wine Tasting", location: "140 Walworth Road, SE1
 wineknow.photo.attach(io: file, filename: "wineknow.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670667461/development/ellena-mcguinness-sT1r3QCvor4-unsplash_h3eood.jpg")
-raclette_night = Event.create(title: "Raclettes & Fondue Nights are back!", location: "56 Newington Grn 56 Newington Green, N16 9PX", category: "Food", description: "Get your fingers dirty! Book your Cheesy Nights with deposit", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:angus)
+raclette_night = Event.create(title: "Raclettes & Fondue Nights are back!", location: "56 Newington Grn 56, N16 9PX", category: "Food", description: "Get your fingers dirty! Book your Cheesy Nights with deposit", start_time: DateTime.new(2022,2,7,5,2,6), availability:2, user:angus)
 raclette_night.photo.attach(io: file, filename: "rraclette_night.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670667526/development/adam-jaime-dmkmrNptMpw-unsplash_lednus.jpg")
@@ -189,7 +189,7 @@ whisky_weekender.photo.attach(io: file, filename: "whisky_weekender.png", conten
 
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670667573/development/murillo-de-paula-o2FCfhNSjPo-unsplash_fniiix.jpg")
-joy_riders = Event.create(title: "Women only Learn to Ride & Basic Cycle Skills", location: "Leyton Jubilee Park Seymour road, E10 7BL", category: "Sports", description: "FREE Women Learn to ride sessions starting October,FREE Bikes to borrow Gain confidence and learn to ride safely with Qualified Instructors", start_time: DateTime.new(2023,12,18,4,5,6), availability:30, user:user4)
+joy_riders = Event.create(title: "Women only Learn to Ride & Basic Cycle Skills", location: "Leyton Jubilee Park, E10 7BL", category: "Sports", description: "FREE Women Learn to ride sessions starting October,FREE Bikes to borrow Gain confidence and learn to ride safely with Qualified Instructors", start_time: DateTime.new(2023,12,18,4,5,6), availability:30, user:user4)
 joy_riders.photo.attach(io: file, filename: "joy_riders.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670667692/development/oksana-taran-xB4ExGcUai0-unsplash_tume90.jpg")
