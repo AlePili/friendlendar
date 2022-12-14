@@ -11,7 +11,7 @@
         <div class="event-requests-cards col-3 m-1">
           <div class="row">
             <div class="col-12">
-              <h5 class="event-request-name"> <%= user.first_name %> </h5>
+              <h5 class="event-request-name mt-1"> <strong><%= user.first_name %></strong> </h5>
             </div>
           </div>
           <div class="row">
@@ -25,8 +25,7 @@
               <% end  %>
             </div>
         </div>
-        <br>
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-12">
               <% if  Friendship.where(asker: current_user, receiver: user).empty? %>
                 <%= render "friendships/form", user: user if current_user.askers.where(receiver_id: user.id, asker_id: current_user).empty? %>
