@@ -1,4 +1,5 @@
 <div class="container-form">
+
    <h2> Create an event </h2>
    <div class="mt-4">
       <%= simple_form_for @event do |f| %>
@@ -14,6 +15,7 @@
                <div class="col-6">
                   <%= f.input :start_time, as: :time, html5:true %> 
                </div>
+
             </div>
             <div class="row ms-0 me-0 justify-content-between align-items-center">
                      <p class="m-0">No of guests</p>
@@ -27,6 +29,7 @@
                      }
                </script>
             </div>
+
             <%= f.input :photo, as: :file %>
             <%= f.submit class: "btn btn-flat mt-4" %>
       <% end %>
