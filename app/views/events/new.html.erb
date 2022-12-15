@@ -5,7 +5,7 @@
    <%= simple_form_for @event do |f| %>
       <%= f.input :title %>
       <%= f.input :location %>
-      <%= f.input :category, :collection => %w[Drinks Concert Festival Worksshop Classes] %> 
+      <%= f.input :category, :collection => %w[Drinks Cinema Concert Festival Workshop&Classes Charity Theater] %> 
       <%= f.input :description %>
          <div class="row">
             <div class="col-6">
@@ -15,9 +15,11 @@
                <%= f.input :start_time, as: :time, html5:true %> 
             </div>
          </div>
-         <%= f.input :availability, collection: 2..30 %>
+         <%= f.input :availability, collection: 2..30, label: "Number of guests" %>
          <%= f.input :photo, as: :file %>
-         <%= f.submit class: "btn btn-flat" %>
+         <div class="mt-5">
+            <%= f.submit class: "btn btn-flat" %>
+         </div>
    <% end %>
  </div>
 
