@@ -22,11 +22,11 @@
             <% end %>
             <% end %>
 
-            <% @friendship_requests.each do |friend_request| %>
-            <%= link_to user_path(friend_request.asker) do  %>
-            <div class="friends-avatars"><%= cl_image_tag friend_request.asker.photo.key, width: 100, height: 100, crop: :fill, class: "avatar-top-friend" if friend_request.receiver.photo.attached? %></div>
-            <% end %>
-            <% end %>
+            <%# <% @friendship_requests.each do |friend_request| %>
+            <%# <%= link_to user_path(friend_request.asker) do  %>
+            <%# <div class="friends-avatars"><%= cl_image_tag friend_request.asker.photo.key, width: 70, height: 70, crop: :fill, class: "avatar-top-friend" if friend_request.receiver.photo.attached? %>
+            <%# <% end %>
+            <%# <% end %>
           </div>
         </div>
       </div>

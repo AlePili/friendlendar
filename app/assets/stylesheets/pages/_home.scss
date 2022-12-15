@@ -41,7 +41,7 @@
 
 .intro {
   font-size: larger;
-  color: orange;
+  color: #FFF5FC;
 }
 
 .title {
@@ -116,8 +116,8 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    background-color: #f3d0b7;
-    border-color: rgb(247, 115, 14);
+    background-color: #FFD5DD;
+    border-color: white;
     margin-left: 5%;
     // width: 180px;
     // height: 100px;
@@ -137,10 +137,10 @@
     margin-top: 5%;
   }
 
-   h2 {
-    color: #FE3F84
-
+  h2.home {
+    color: #000000
   }
+
 .friend p {
   font-style: italic;
   margin: 7%;
@@ -194,7 +194,7 @@
   }
 
   .intro {
-    background-color: #f9ecdb;
+    background-color: #fde4e4;
     padding: 2%;
     margin-bottom: 5%;
     margin-left: 2%;
@@ -271,10 +271,3 @@
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
   }
-
-
-
-  // .simple-calendar td { 
-  //   height: 100px !important; 
-  //   min-width: 95px !important; 
-  // }

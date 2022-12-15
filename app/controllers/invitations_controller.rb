@@ -6,7 +6,7 @@ class InvitationsController < ApplicationController
     @invitation.event = @event
     # @invitation.status = "pending"
     if @invitation.save!
-      redirect_to event_path(@event), notice: "You're all set"
+      redirect_to event_path(@event), notice: "You're all set 🙌"
     else
       render :new, status: :unprocessable_entity
     end
