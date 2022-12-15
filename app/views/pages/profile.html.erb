@@ -75,14 +75,14 @@
     </div>
 
     <div class="col-md-6">
-    <div class="calendar-container">
+    <div class="calendar-container sticky-top">
        <%= month_calendar(events: @events, end_attribute: :end_time) do |date, events| %>
        <%= date %>
 
       <% events.each do |event| %>
         <% if event.user == current_user %>
-          <div class="calendar-event">
-            <p><%= event.title %></p>
+          <div class="calendar-event p-1 mb-1">
+            <p class="m-0"><%= event.title %></p>
           </div>
         <% else %>
           <div class="calendar-event-friend">
