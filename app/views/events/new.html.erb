@@ -1,24 +1,34 @@
 <div class="container-form">
-
- <h2> Create an event </h2>
- <div class="mt-4">
-   <%= simple_form_for @event do |f| %>
-      <%= f.input :title %>
-      <%= f.input :location %>
-      <%= f.input :category, :collection => %w[Drinks Concert Festival Worksshop Classes] %> 
-      <%= f.input :description %>
-         <div class="row">
-            <div class="col-6">
-            <%= f.input :start_time, as: :date, html5:true, label: "Date" %> 
+   <h2> Create an event </h2>
+   <div class="mt-4">
+      <%= simple_form_for @event do |f| %>
+         <%= f.input :title, placeholder: "Candelight concert" %>
+         <%= f.input :location, placeholder: "Downing street 10, London" %>
+         <% categories = %w[Drinks Concert Festival Workshop Classes Sport Dance Birthday Party Trip Hiking Adventure Other Celebration] %>
+         <%= f.input :category, :collection => categories.sort %>
+         <%= f.input :description, placeholder: "Add some description...." %>
+            <div class="row">
+               <div class="col-6">
+               <%= f.input :start_time, as: :date, html5:true, label: "Date" %> 
+               </div>
+               <div class="col-6">
+                  <%= f.input :start_time, as: :time, html5:true %> 
+               </div>
             </div>
-            <div class="col-6">
-               <%= f.input :start_time, as: :time, html5:true %> 
+            <div class="row ms-0 me-0 justify-content-between align-items-center">
+                     <p class="m-0">No of guests</p>
+                  <div class="col-10">
+                     <%= f.input :availability, as: :range,label: false, input_html:{ min:"1", max:"30", value: "1", oninput:"updateTextInput(this.value)", class: "slider"} %>
+                  </div>
+                  <input type="text" id="textInput" value="1" disabled class="col-2 form-slider">
+               <script>
+               function updateTextInput(val) {
+                        document.getElementById('textInput').value=val;
+                     }
+               </script>
             </div>
-         </div>
-         <%= f.input :availability, collection: 2..30 %>
-         <%= f.input :photo, as: :file %>
-         <%= f.submit class: "btn btn-flat" %>
-   <% end %>
- </div>
-
+            <%= f.input :photo, as: :file %>
+            <%= f.submit class: "btn btn-flat mt-4" %>
+      <% end %>
+   </div>
 </div>
