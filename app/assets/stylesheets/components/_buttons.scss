@@ -12,6 +12,23 @@
   color: white;
 }
 
+.add-friend-button {
+  background-color: #FE3F84;
+  border-radius: 2px 2px 2px 2px;
+  border: none;
+  color: white;
+  padding: 4px 4px;
+  width: 100%;
+}
+
+.add-friend-button:hover {
+  background-color: #fa75a6;
+}
+
+.new_friendship {
+  width: 160px;
+}
+
 .btn-flat-secondary {
   color: #FE3F84;
   border: 1px solid #FE3F84;

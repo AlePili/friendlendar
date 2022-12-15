@@ -1,7 +1,7 @@
 
   <div class="container">
   <br>
-    <h1 class="text-left ps-2">Dicover your friends events (<%= @friends_events.count %>)</h1>
+    <h1 class="text-left ps-2">Dicover your friends' events (<%= @friends_events.count %>)</h1>
     <div class="row">
       <% @friends_events.each do |event| %>
         <%= link_to event_path(event), class: "col-3 friends-events" do %>
@@ -15,7 +15,11 @@
             </div>
             <div class="booking-card-body d-flex justify-content-start">
               <h4 class="h-100 d-inline-block" style="min-height: 57px; min-height: 57px"">
-                <%= event.title %>
+                <% if event.title.size > 30 %>
+                  <%= event.title[0..35] %>...
+                <% else %>
+                  <%= event.title %>
+                <% end %>
               </h4>
               <div class="d-flex w-100 justify-content-between">
                 <span class="booking-tag booking-tag-teal mb-3"><%= event.category %></span>
@@ -24,11 +28,11 @@
 
               <div class="row justify-content-between">
                 <p class="col-5"><strong>📍 Location:</strong></p>
-                <p class="col-7"><%= event.location %></p>
+                <p class="col-7 text-end"><%= event.location %></p>
               </div>
               <div class="row justify-content-between">
                 <p class="col-5"><strong>🗓 Date:</strong></p>
-                <p class="col-7"><%= event.start_time.strftime('%a, %b %d at %H:%M')%></p>
+                <p class="col-7 text-end"><%= event.start_time.strftime('%a, %b %d at %H:%M')%></p>
               </div>
               <div class="booking-user">
 

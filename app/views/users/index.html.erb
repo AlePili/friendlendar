@@ -11,6 +11,7 @@
         <div class="event-requests-cards col-3 m-1">
           <div class="row">
             <div class="col-12">
+
               <%= link_to user_path(user) do  %>
                 <% if user.photo.attached? %>
                   <%= cl_image_tag user.photo.key, crop: :fill,  class: "avatar-approved-user" %>
@@ -20,6 +21,7 @@
               <% end  %>
               <div class="event-request-name"> <%= user.first_name %> </div>
             </div>
+
           </div>
 
         <br>
