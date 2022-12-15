@@ -15,6 +15,11 @@
   font-size: 10px;
 }
 
+.calendar-event:hover {
+  background: #fa77d3;
+  color: white;
+}
+
 .calendar-event-friend {
   color: white;
   padding: 2px  2px;
@@ -24,8 +29,8 @@
   font-size: 10px;
 }
 
-.calendar-event:hover {
-  background: #fa77d3;
+.calendar-event-friend:hover {
+  background: #7881e1;
   color: white;
 }
 
