@@ -19,12 +19,12 @@
                   <%=image_tag("avatar.png", class: "avatar")%>
                 <% end %>
               <% end  %>
-              <div class="event-request-name"> <%= user.first_name %> </div>
+              <div class="event-request-name p-2"> <%= user.first_name %> </div>
             </div>
 
           </div>
 
-        <br>
+
         <div class="row">
             <div class="col-12">
               <% if  Friendship.where(asker: current_user, receiver: user).empty? %>

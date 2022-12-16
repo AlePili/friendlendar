@@ -208,7 +208,7 @@ raclette_night = Event.create(title: "Raclettes & Fondue Night", location: "56 N
 raclette_night.photo.attach(io: file, filename: "rraclette_night.png", content_type: "image/png")
 
 file = URI.open("https://res.cloudinary.com/dopqijnpv/image/upload/v1670667526/development/adam-jaime-dmkmrNptMpw-unsplash_lednus.jpg")
-whisky_weekender = Event.create(title: "London Whisky Weekender 2023", location: "The Kia Oval, SE11 5SS", category: "Drinks", description: "If you haven’t been to one of our festivals before you are in for a treat!", start_time: DateTime.new(2022,12,19,1,2,0), availability:5, user:user3)
+whisky_weekender = Event.create(title: "Whisky Tasting", location: "The Kia Oval, SE11 5SS", category: "Drinks", description: "If you haven’t been to one of our festivals before you are in for a treat!", start_time: DateTime.new(2022,12,19,1,2,0), availability:5, user:user3)
 whisky_weekender.photo.attach(io: file, filename: "whisky_weekender.png", content_type: "image/png")
 
 
