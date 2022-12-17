@@ -116,7 +116,7 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    background-color: #FFD5DD;
+    background-color: #ec090933;
     border-color: white;
     margin-left: 5%;
     // width: 180px;
@@ -194,7 +194,7 @@
   }
 
   .intro {
-    background-color: #fde4e4;
+    background-color: #f5acf12e;
     padding: 2%;
     margin-bottom: 5%;
     margin-left: 2%;
@@ -279,9 +279,9 @@
     position: absolute;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 25px 50px;
-    background-color: rgb(118, 227, 118);
-    color: #777;
+    padding: 10px 15px;
+    background-color: #fe3f85b1;
+    color: rgb(255, 255, 255);
     border-radius: 100px;
     font-size: 24px;
     transition: all 0.2s;
@@ -294,10 +294,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(26, 65, 155);
+    background-color: rgb(190, 87, 208);
     border-radius: 100px;
-    transition: all 0.4s;
+    transition: all 1.4s;
     z-index: -1;
+    color: #FE3F84;
+    text-decoration: none;
   }
   
   .fancy-button:hover:before {
